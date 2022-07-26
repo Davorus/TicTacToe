@@ -1,9 +1,9 @@
 #include <iostream>
 
 #include "Game_Handler.hpp"
-#include "Player.hpp"
+import GUI_Utils;
 
 int main()
 {
-    Player p;
+    GUI::print("Hello there");
 }

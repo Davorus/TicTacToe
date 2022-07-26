@@ -7,12 +7,15 @@
           "args": [
              "-fdiagnostics-color=always",
              "-g",
-             "${fileDirname}\\*.cpp",
+             "-I",
+             "Handler/",
+             "${workspaceFolder}\\*.cpp",
+             "Handler/Game_Handler.cpp",
              "-o",
-             "${fileDirname}\\${fileBasenameNoExtension}.exe"
+             "${workspaceFolder}\\${fileBasenameNoExtension}.exe"
           ],
           "options": {
-             "cwd": "${fileDirname}"
+             "cwd": "${workspaceFolder}"
           },
           "problemMatcher": [
              "$gcc"
@@ -28,7 +31,7 @@
           "label": "Remove exe",
           "command": "del",
           "args": [
-             "${fileDirname}\\${fileBasenameNoExtension}.exe"
+             "${workspaceFolder}\\${fileBasenameNoExtension}.exe"
           ]
        }
     ],

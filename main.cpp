@@ -1,6 +1,9 @@
 #include <iostream>
 
+#include "Game_Handler.hpp"
+
 int main()
 {
-    std::cout << "Hallo Welt" << std::endl;
+    Game_Handler g;
+    g.start();
 }

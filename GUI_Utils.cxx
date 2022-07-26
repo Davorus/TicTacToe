@@ -8,6 +8,6 @@ export namespace GUI
 {
     void print(std::string s)
     {
-        std::cout << s << std::endl;
+        std::cout << "May it be working?" << std::endl;
     }
 }

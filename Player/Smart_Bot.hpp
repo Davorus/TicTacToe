@@ -1,9 +1,9 @@
 #ifndef _SMART_BOT_HPP_INCLUDED
 #define _SMART_BOT_HPP_INCLUDED
 
-#include "Bot.hpp"
+#include "Player.hpp"
 
-class Smart_Bot : public Bot
+class Smart_Bot : public Player
 {
 
 };

@@ -1,9 +1,9 @@
 #ifndef _RANDOM_BOT_HPP_INCLUDED
 #define _RANDOM_BOT_HPP_INCLUDED
 
-#include "Bot.hpp"
+#include "Player.hpp"
 
-class Random_Bot : public Bot
+class Random_Bot : public Player
 {
 
 };

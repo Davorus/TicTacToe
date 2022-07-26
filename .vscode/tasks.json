@@ -11,6 +11,10 @@
              "Handler/",
              "${workspaceFolder}\\*.cpp",
              "Handler/Game_Handler.cpp",
+             "Handler/Menu_Handler.cpp",
+             "Handler/GUI_Handler.cpp",
+             "Handler/Playfield_Handler.cpp",
+             "Handler/Player_Handler.cpp",
              "-o",
              "${workspaceFolder}\\${fileBasenameNoExtension}.exe"
           ],

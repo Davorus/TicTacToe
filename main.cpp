@@ -1,9 +1,9 @@
 #include <iostream>
 
 #include "Game_Handler.hpp"
+#include "Menu_Handler.hpp"
 
 int main()
 {
-    Game_Handler g;
-    g.start();
+    Menu_Handler m;
 }

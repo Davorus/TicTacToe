@@ -6,5 +6,5 @@
 int main()
 {
     Gamesetup_Handler h;
-    std::cout << (int)h.get_Bot1_Type();
+    h.print_Start_Menu();
 }

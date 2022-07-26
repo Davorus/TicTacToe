@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "Game_Handler.hpp"
+#include "Handler/Game_Handler.hpp"
 
-import GUI_Utils
+import GUI_Utils;
 
 int main()
 {

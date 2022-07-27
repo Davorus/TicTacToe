@@ -1,37 +1,65 @@
 //----------------------------------------------------------------
 #include <iostream>
-#include <unistd.h> //Warum meldet der hier einen Fehler der verschwindet wenn ich draufklicke?
+#include <unistd.h> 
 //----------------------------------------------------------------
 #include "Gamesetup_Handler.hpp"
 //----------------------------------------------------------------
 
 Gamesetup_Handler::Gamesetup_Handler()
-    :m_bot1{Bot_Type::NotDeclared}
-    ,m_bot2{Bot_Type::NotDeclared}
 {
 }
 
-
 Gamesetup_Handler::Gamesetup_Handler(Game_Handler& p_GH)
-    :m_bot1{Bot_Type::NotDeclared}
-    ,m_bot2{Bot_Type::NotDeclared}
-    ,m_GH{p_GH}
+    :m_GH{p_GH}
 {
 }
 
 Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 {
-    return this->m_bot1;
+    std::cout << "Choose what bot1 should be:" << std::endl;
+    std::cout << "   1. Random Bot" << std::endl;
+    std::cout << "   2. Smart Bot" << std::endl;
+    int input;
+    do
+    {
+        std::cout << "Enter type for Bot1" << std::endl;
+        std::cin >> input;
+        
+        if(input != 1 || input != 2)
+            std::cout << "Enter valid input" << std::endl;
+        else
+        {
+            if(input == 1)
+                return Bot_Type::RandomBot;
+            else if(input == 2)
+                return Bot_Type::SmartBot;
+        }
+    } while (input < 1 || input > 2);
 }
 
 Bot_Type Gamesetup_Handler::get_Bot2_Type() const
 {
-    return this->m_bot2;
-}
-
-void Gamesetup_Handler::set_Bot_Type()
-{
-
+    std::cout << "Choose what bot2 should be:" << std::endl;
+    std::cout << "   1. Random Bot" << std::endl;
+    std::cout << "   2. Smart Bot" << std::endl;
+    int input;
+    do
+    {
+        std::cout << "Enter type for Bot1" << std::endl;
+        std::cin >> input;
+        
+        if(input != 1 || input != 2)
+        {
+            std::cout << "Enter valid input" << std::endl;
+        }
+        else
+        {
+            if(input == 1)
+                return Bot_Type::RandomBot;
+            else if(input == 2)
+                return Bot_Type::SmartBot;
+        }
+    } while (input < 1 || input > 2);
 }
 
 int Gamesetup_Handler::get_Menu_input() const
@@ -80,9 +108,24 @@ void Gamesetup_Handler::gamerules() const
     this->print_Start_Menu();
 }
 
+int Gamesetup_Handler::initialize_players() const
+{
+    int amount_of_players = -1;
+    do
+    {
+        std::cout << "Enter amount of players(max 3):";       
+        std::cin >> amount_of_players;
+    } while (amount_of_players <= 1 || amount_of_players > 3);
+    return amount_of_players;
+}
+
 void Gamesetup_Handler::play() const
 {
-    //m_GH.start();
+    int player_amount = this->initialize_players();
+    Bot_Type bot1 = this->get_Bot1_Type();
+    Bot_Type bot2 = this->get_Bot2_Type();
+
+    m_GH.start(player_amount);
     this->print_Start_Menu();
 }
 

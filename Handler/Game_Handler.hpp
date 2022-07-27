@@ -10,7 +10,7 @@ class Game_Handler
 {
     public:
         Game_Handler();
-        void start() const;
+        void start(int p_Player_Amount) const;
 };
 
 #endif

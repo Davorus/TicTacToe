@@ -6,10 +6,9 @@
 
 Game_Handler::Game_Handler()
 {
-    
 }
 
-void Game_Handler::start() const
+void Game_Handler::start(int p_Player_Amount) const
 {
-    std::cout << "Befehl zum Starten erhalten" << std::endl;
+    
 }

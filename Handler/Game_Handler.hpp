@@ -4,7 +4,7 @@
 class Game_Handler
 {
     public:
-        void start();
+        void start() const;
 };
 
 #endif

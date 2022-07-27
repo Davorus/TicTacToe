@@ -1,19 +1,20 @@
 #include <iostream>
-#include <unistd.h>
+#include <unistd.h> //Warum meldet der hier einen Fehler der verschwindet wenn ich draufklicke?
 #include "Gamesetup_Handler.hpp"
 
-Gamesetup_Handler::Gamesetup_Handler()
+Gamesetup_Handler::Gamesetup_Handler(Game_Handler& p_GH)
     :m_bot1{Bot_Type::NotDeclared}
     ,m_bot2{Bot_Type::NotDeclared}
+    ,m_GH{p_GH}
 {
 }
 
-Bot_Type Gamesetup_Handler::get_Bot1_Type()
+Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 {
     return this->m_bot1;
 }
 
-Bot_Type Gamesetup_Handler::get_Bot2_Type()
+Bot_Type Gamesetup_Handler::get_Bot2_Type() const
 {
     return this->m_bot2;
 }
@@ -23,7 +24,7 @@ void Gamesetup_Handler::set_Bot_Type()
 
 }
 
-int Gamesetup_Handler::get_Menu_input()
+int Gamesetup_Handler::get_Menu_input() const
 {
     int input = 0;
     do
@@ -34,7 +35,7 @@ int Gamesetup_Handler::get_Menu_input()
     return input;
 }
 
-void Gamesetup_Handler::credits()
+void Gamesetup_Handler::credits() const
 {
     std::cout << "Credits are overrated" << std::endl;
     sleep(4);
@@ -52,7 +53,7 @@ void Gamesetup_Handler::credits()
     this->print_Start_Menu();
 }
 
-void Gamesetup_Handler::gamerules()
+void Gamesetup_Handler::gamerules() const
 {
     std::cout << "Gamerules:" << std::endl;
     sleep(3);
@@ -69,13 +70,13 @@ void Gamesetup_Handler::gamerules()
     this->print_Start_Menu();
 }
 
-void Gamesetup_Handler::play()
+void Gamesetup_Handler::play() const
 {
-    
+    m_GH.start();
     this->print_Start_Menu();
 }
 
-void Gamesetup_Handler::set_up_mode(Menu_Options mode)
+void Gamesetup_Handler::set_up_mode(Menu_Options mode) const
 {
     switch(mode)
     {
@@ -86,7 +87,7 @@ void Gamesetup_Handler::set_up_mode(Menu_Options mode)
     }
 }
 
-void Gamesetup_Handler::print_Start_Menu()
+void Gamesetup_Handler::print_Start_Menu() const
 {
     std::cout << "***********MENU***********" << std::endl;
     std::cout << "0. Credits" << std::endl;

@@ -5,6 +5,7 @@
 
 int main()
 {
-    Gamesetup_Handler h;
+    Game_Handler gh;
+    Gamesetup_Handler h(gh);
     h.print_Start_Menu();
 }

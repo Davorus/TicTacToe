@@ -35,6 +35,7 @@ Bot_Type Gamesetup_Handler::get_Bot1_Type() const
                 return Bot_Type::SmartBot;
         }
     } while (input < 1 || input > 2);
+    return Bot_Type::Error;
 }
 
 Bot_Type Gamesetup_Handler::get_Bot2_Type() const
@@ -60,6 +61,7 @@ Bot_Type Gamesetup_Handler::get_Bot2_Type() const
                 return Bot_Type::SmartBot;
         }
     } while (input < 1 || input > 2);
+    return Bot_Type::Error;
 }
 
 int Gamesetup_Handler::get_Menu_input() const

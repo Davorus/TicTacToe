@@ -1,3 +1,6 @@
+#ifndef _ENUMCLASSES_HPP_INCLUDED
+#define _ENUMCLASSES_HPP_INCLUDED
+
 enum class Bot_Type
 {
     NotDeclared = 0,
@@ -13,3 +16,5 @@ enum class Menu_Options
     Play = 2,
     End_Program = 3
 };
+
+#endif

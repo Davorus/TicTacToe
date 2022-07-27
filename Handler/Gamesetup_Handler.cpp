@@ -1,6 +1,16 @@
+//----------------------------------------------------------------
 #include <iostream>
 #include <unistd.h> //Warum meldet der hier einen Fehler der verschwindet wenn ich draufklicke?
+//----------------------------------------------------------------
 #include "Gamesetup_Handler.hpp"
+//----------------------------------------------------------------
+
+Gamesetup_Handler::Gamesetup_Handler()
+    :m_bot1{Bot_Type::NotDeclared}
+    ,m_bot2{Bot_Type::NotDeclared}
+{
+}
+
 
 Gamesetup_Handler::Gamesetup_Handler(Game_Handler& p_GH)
     :m_bot1{Bot_Type::NotDeclared}
@@ -72,7 +82,7 @@ void Gamesetup_Handler::gamerules() const
 
 void Gamesetup_Handler::play() const
 {
-    m_GH.start();
+    //m_GH.start();
     this->print_Start_Menu();
 }
 

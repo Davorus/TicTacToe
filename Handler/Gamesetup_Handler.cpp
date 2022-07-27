@@ -48,7 +48,7 @@ void Gamesetup_Handler::credits()
     sleep(4);
     std::cout << "Or maybe they should?" << std::endl;
     sleep(2);
-    
+
     this->print_Start_Menu();
 }
 
@@ -71,6 +71,7 @@ void Gamesetup_Handler::gamerules()
 
 void Gamesetup_Handler::play()
 {
+    
     this->print_Start_Menu();
 }
 

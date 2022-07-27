@@ -37,22 +37,35 @@ int Gamesetup_Handler::get_Menu_input()
 void Gamesetup_Handler::credits()
 {
     std::cout << "Credits are overrated" << std::endl;
-    sleep(5);
+    sleep(4);
     std::cout << "BUT!" << std::endl;
-    sleep(3);
+    sleep(1.5);
     std::cout << "This game belongs to David Movsesjan who made it" << std::endl;
-    sleep(3);
+    sleep(1.5);
     std::cout << "as a university project. This credits aren't to be" << std::endl;
-    sleep(5);
+    sleep(1.5);
     std::cout << "taken too serious." << std::endl;
-    sleep(5);
+    sleep(4);
     std::cout << "Or maybe they should?" << std::endl;
-    sleep(3);
+    sleep(2);
+    
     this->print_Start_Menu();
 }
 
 void Gamesetup_Handler::gamerules()
 {
+    std::cout << "Gamerules:" << std::endl;
+    sleep(3);
+    std::cout << "Try to place 3 of your moves in a" << std::endl;
+    sleep(1);
+    std::cout << "    1. horizontal" << std::endl;
+    sleep(1);
+    std::cout << "    2. vertical" << std::endl;
+    sleep(1);
+    std::cout << "    3. diagonal" << std::endl;
+    sleep(1);
+    std::cout << "way to win the game!" << std::endl;
+    sleep(1);
     this->print_Start_Menu();
 }
 

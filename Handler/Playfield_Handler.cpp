@@ -39,7 +39,39 @@ void Playfield_Handler::print_Playfield() const
     }
 }
 
-void Playfield_Handler::check_for_legal_play() const
+bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
 {
+    if(y_axis < 0 || y_axis > this->m_rows)
+    {
+        return false;
+    }
+    else if(x_axis < 0 || x_axis > this->m_columns)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
 
+bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)
+{
+    bool legal = false;
+    legal = this->check_for_legal_play(y_axis, x_axis);
+    if(legal == false)
+    {
+        return false;
+    }
+    else if(legal == true)
+    {
+        if(this->m_playfield.at(y_axis).at(x_axis) != 0)
+        {
+            return false;
+        }
+        else
+        {
+            this->m_playfield.at(y_axis).at(x_axis) = player_move;
+        }
+    }
 }

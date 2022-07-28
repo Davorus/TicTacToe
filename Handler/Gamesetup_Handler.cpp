@@ -1,6 +1,7 @@
 //----------------------------------------------------------------
 #include <iostream>
-#include <unistd.h> 
+#include <unistd.h>
+#include <stdlib.h>
 //----------------------------------------------------------------
 #include "Gamesetup_Handler.hpp"
 #include "../Utilities.hpp"
@@ -12,6 +13,7 @@ Gamesetup_Handler::Gamesetup_Handler()
 
 Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 {
+    MyUtils::clear_screen();
     MyUtils::print("Choose what bot1 should be:");
     MyUtils::print("   1. Random Bot");
     MyUtils::print("   2. Smart Bot");
@@ -36,6 +38,7 @@ Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 
 Bot_Type Gamesetup_Handler::get_Bot2_Type() const
 {
+    MyUtils::wait_for_enter();
     MyUtils::print("Choose what bot2 should be:");
     MyUtils::print("   1. Random Bot");
     MyUtils::print("   2. Smart Bot");
@@ -72,6 +75,7 @@ int Gamesetup_Handler::get_Menu_input() const
 
 void Gamesetup_Handler::credits() const
 {
+    MyUtils::clear_screen();
     MyUtils::print("Credits are overrated");
     sleep(4);
     MyUtils::print("BUT!");
@@ -83,13 +87,15 @@ void Gamesetup_Handler::credits() const
     MyUtils::print("taken too serious.");
     sleep(4);
     MyUtils::print("Or maybe they should?");
-    sleep(2);
+    MyUtils::print("Press any key to return to the main menu...");
+    MyUtils::wait_for_enter();
 
     this->print_Start_Menu();
 }
 
 void Gamesetup_Handler::gamerules() const
 {
+    MyUtils::clear_screen();
     MyUtils::print("Gamerules:");
     sleep(3);
     MyUtils::print("Try to place 3 of your moves in a");
@@ -101,7 +107,8 @@ void Gamesetup_Handler::gamerules() const
     MyUtils::print("    3. diagonal");
     sleep(1);
     MyUtils::print("way to win the game!");
-    sleep(1);
+    MyUtils::print("Press any key to return to the main menu...");
+    MyUtils::wait_for_enter();
     this->print_Start_Menu();
 }
 
@@ -139,6 +146,7 @@ void Gamesetup_Handler::set_up_mode(Menu_Options mode) const
 
 void Gamesetup_Handler::print_Start_Menu() const
 {
+    MyUtils::clear_screen();
     MyUtils::print("***********MENU***********");
     MyUtils::print("0. Credits");
     MyUtils::print("1. Gamerules");

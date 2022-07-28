@@ -7,6 +7,7 @@
 */
 
 #include <iostream>
+#include <conio.h>
 
 namespace MyUtils
 {
@@ -21,6 +22,16 @@ namespace MyUtils
     {
         print("Enter value:");
         std::cin >> input;
+    }
+
+    static void clear_screen()
+    {
+        std::cout << "\x1B[2J\x1B[H";
+    }
+
+    static void wait_for_enter()
+    {
+        getch();
     }
 }
 

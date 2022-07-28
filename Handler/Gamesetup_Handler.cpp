@@ -24,7 +24,7 @@ Bot_Type Gamesetup_Handler::get_Bot1_Type() const
     do
     {
         MyUtils::print("Enter type for Bot1");
-        std::cin >> input;
+        MyUtils::input(input);
         
         if(input < 1 || input > 2)
             MyUtils::print("Enter valid input");
@@ -48,7 +48,7 @@ Bot_Type Gamesetup_Handler::get_Bot2_Type() const
     do
     {
         MyUtils::print("Enter type for Bot2");
-        std::cin >> input;
+        MyUtils::input(input);
         
         if(input < 1 || input > 2)
         {
@@ -71,7 +71,7 @@ int Gamesetup_Handler::get_Menu_input() const
     do
     {
         MyUtils::print("Enter value: ");
-        std::cin >> input;
+        MyUtils::input(input);
     } while (input < 0 || input > 3);
     return input;
 }
@@ -117,7 +117,7 @@ int Gamesetup_Handler::initialize_players() const
     do
     {
         MyUtils::print("Enter amount of players(max 3):");
-        std::cin >> amount_of_players;
+        MyUtils::input(amount_of_players);
     } while (amount_of_players <= 1 || amount_of_players > 3);
     return amount_of_players;
 }
@@ -149,6 +149,7 @@ void Gamesetup_Handler::set_up_mode(Menu_Options mode) const
         case Menu_Options::Gamerules: this->gamerules(); break;
         case Menu_Options::Play: this->play(); break;
         case Menu_Options::End_Program: return;
+        default: break;
     }
 }
 

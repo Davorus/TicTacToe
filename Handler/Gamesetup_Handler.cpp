@@ -3,6 +3,7 @@
 #include <unistd.h> 
 //----------------------------------------------------------------
 #include "Gamesetup_Handler.hpp"
+#include "../Utilities.hpp"
 //----------------------------------------------------------------
 
 Gamesetup_Handler::Gamesetup_Handler()
@@ -16,17 +17,17 @@ Gamesetup_Handler::Gamesetup_Handler(Game_Handler& p_GH)
 
 Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 {
-    std::cout << "Choose what bot1 should be:" << std::endl;
-    std::cout << "   1. Random Bot" << std::endl;
-    std::cout << "   2. Smart Bot" << std::endl;
+    MyUtils::print("Choose what bot1 should be:");
+    MyUtils::print("   1. Random Bot");
+    MyUtils::print("   2. Smart Bot");
     int input;
     do
     {
-        std::cout << "Enter type for Bot1" << std::endl;
+        MyUtils::print("Enter type for Bot1");
         std::cin >> input;
         
-        if(input != 1 || input != 2)
-            std::cout << "Enter valid input" << std::endl;
+        if(input < 1 || input > 2)
+            MyUtils::print("Enter valid input");
         else
         {
             if(input == 1)
@@ -40,18 +41,18 @@ Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 
 Bot_Type Gamesetup_Handler::get_Bot2_Type() const
 {
-    std::cout << "Choose what bot2 should be:" << std::endl;
-    std::cout << "   1. Random Bot" << std::endl;
-    std::cout << "   2. Smart Bot" << std::endl;
+    MyUtils::print("Choose what bot2 should be:");
+    MyUtils::print("   1. Random Bot");
+    MyUtils::print("   2. Smart Bot");
     int input;
     do
     {
-        std::cout << "Enter type for Bot1" << std::endl;
+        MyUtils::print("Enter type for Bot2");
         std::cin >> input;
         
-        if(input != 1 || input != 2)
+        if(input < 1 || input > 2)
         {
-            std::cout << "Enter valid input" << std::endl;
+            MyUtils::print("Enter valid input");
         }
         else
         {
@@ -69,7 +70,7 @@ int Gamesetup_Handler::get_Menu_input() const
     int input = 0;
     do
     {
-        std::cout << "Enter value: ";
+        MyUtils::print("Enter value: ");
         std::cin >> input;
     } while (input < 0 || input > 3);
     return input;
@@ -77,17 +78,17 @@ int Gamesetup_Handler::get_Menu_input() const
 
 void Gamesetup_Handler::credits() const
 {
-    std::cout << "Credits are overrated" << std::endl;
+    MyUtils::print("Credits are overrated");
     sleep(4);
-    std::cout << "BUT!" << std::endl;
+    MyUtils::print("BUT!");
     sleep(1.5);
-    std::cout << "This game belongs to David Movsesjan who made it" << std::endl;
+    MyUtils::print("This game belongs to David Movsesjan who made it");
     sleep(1.5);
-    std::cout << "as a university project. This credits aren't to be" << std::endl;
+    MyUtils::print("as a university project. This credits aren't to be");
     sleep(1.5);
-    std::cout << "taken too serious." << std::endl;
+    MyUtils::print("taken too serious.");
     sleep(4);
-    std::cout << "Or maybe they should?" << std::endl;
+    MyUtils::print("Or maybe they should?");
     sleep(2);
 
     this->print_Start_Menu();
@@ -95,17 +96,17 @@ void Gamesetup_Handler::credits() const
 
 void Gamesetup_Handler::gamerules() const
 {
-    std::cout << "Gamerules:" << std::endl;
+    MyUtils::print("Gamerules:");
     sleep(3);
-    std::cout << "Try to place 3 of your moves in a" << std::endl;
+    MyUtils::print("Try to place 3 of your moves in a");
     sleep(1);
-    std::cout << "    1. horizontal" << std::endl;
+    MyUtils::print("    1. horizontal");
     sleep(1);
-    std::cout << "    2. vertical" << std::endl;
+    MyUtils::print("    2. vertical");
     sleep(1);
-    std::cout << "    3. diagonal" << std::endl;
+    MyUtils::print("    3. diagonal");
     sleep(1);
-    std::cout << "way to win the game!" << std::endl;
+    MyUtils::print("way to win the game!");
     sleep(1);
     this->print_Start_Menu();
 }
@@ -115,7 +116,7 @@ int Gamesetup_Handler::initialize_players() const
     int amount_of_players = -1;
     do
     {
-        std::cout << "Enter amount of players(max 3):";       
+        MyUtils::print("Enter amount of players(max 3):");
         std::cin >> amount_of_players;
     } while (amount_of_players <= 1 || amount_of_players > 3);
     return amount_of_players;
@@ -153,11 +154,11 @@ void Gamesetup_Handler::set_up_mode(Menu_Options mode) const
 
 void Gamesetup_Handler::print_Start_Menu() const
 {
-    std::cout << "***********MENU***********" << std::endl;
-    std::cout << "0. Credits" << std::endl;
-    std::cout << "1. Gamerules" << std::endl;
-    std::cout << "2. Play" << std::endl;
-    std::cout << "3. End Program" << std::endl;
+    MyUtils::print("***********MENU***********");
+    MyUtils::print("0. Credits");
+    MyUtils::print("1. Gamerules");
+    MyUtils::print("2. Play");
+    MyUtils::print("3. End Program");
     int user_input;
     user_input = this->get_Menu_input();
     set_up_mode((Menu_Options)user_input);

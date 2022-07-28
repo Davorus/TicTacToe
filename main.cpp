@@ -3,6 +3,7 @@
 #include "Game_Handler.hpp"
 #include "Gamesetup_Handler.hpp"
 #include "Utilities.hpp"
+#include "Playfield_Handler.hpp"
 
 int main()
 {

@@ -70,7 +70,6 @@ int Gamesetup_Handler::get_Menu_input() const
     int input = 0;
     do
     {
-        MyUtils::print("Enter value: ");
         MyUtils::input(input);
     } while (input < 0 || input > 3);
     return input;

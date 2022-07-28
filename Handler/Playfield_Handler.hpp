@@ -16,7 +16,8 @@ class Playfield_Handler
     public:
         Playfield_Handler();
         void initialize_Playfield(int rows, int columns);
-        void print_Playfield();
+        void print_Playfield() const;
+        void check_for_legal_play() const;
 };
 
 #endif

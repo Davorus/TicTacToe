@@ -27,7 +27,7 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
     this->m_playfield.assign(tempVector.begin(), tempVector.end());
 }
 
-void Playfield_Handler::print_Playfield()
+void Playfield_Handler::print_Playfield() const
 {
     for(int i = 0; i < this->m_rows; i++)
     {
@@ -37,4 +37,9 @@ void Playfield_Handler::print_Playfield()
         }
         std::cout << std::endl;
     }
+}
+
+void Playfield_Handler::check_for_legal_play() const
+{
+
 }

@@ -5,14 +5,17 @@
 //----------------------------------------------------------------
 #include "EnumClasses.hpp"
 #include "Playfield_Handler.hpp"
+#include "Player.hpp"
 //----------------------------------------------------------------
 
 class Game_Handler
 {
+    private:
+        int m_player_amount;
     public:
         Game_Handler();
-        void start(int p_Player_Amount, Bot_Type bot1) const;
-        void start(int p_Player_Amount, Bot_Type bot1, Bot_Type bot2) const;
+        void set_player_amount(int p_player_amount);
+        void start() const;
 };
 
 #endif

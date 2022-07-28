@@ -7,10 +7,6 @@
 
 int main()
 {
-    /*
-    Game_Handler gh;
-    Gamesetup_Handler h(gh);
+    Gamesetup_Handler h;
     h.print_Start_Menu();
-    */
-   Playfield_Handler ph;
 }

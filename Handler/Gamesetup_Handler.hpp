@@ -19,7 +19,6 @@ class Gamesetup_Handler
         int initialize_players() const;
     public:
         Gamesetup_Handler();
-        Gamesetup_Handler(Game_Handler& p_GH);
         Bot_Type get_Bot1_Type() const;
         Bot_Type get_Bot2_Type() const;
         void print_Start_Menu() const;

@@ -10,11 +10,6 @@ Gamesetup_Handler::Gamesetup_Handler()
 {
 }
 
-Gamesetup_Handler::Gamesetup_Handler(Game_Handler& p_GH)
-    :m_GH{p_GH}
-{
-}
-
 Bot_Type Gamesetup_Handler::get_Bot1_Type() const
 {
     MyUtils::print("Choose what bot1 should be:");
@@ -124,18 +119,8 @@ int Gamesetup_Handler::initialize_players() const
 void Gamesetup_Handler::play() const
 {
     int player_amount = this->initialize_players();
-    
-    if(player_amount == 2)
-    {
-        Bot_Type bot1 = this->get_Bot1_Type();
-        m_GH.start(player_amount, bot1);
-    }
-    else
-    {
-        Bot_Type bot1 = this->get_Bot1_Type();
-        Bot_Type bot2 = this->get_Bot2_Type();
-        m_GH.start(player_amount, bot1, bot2);
-    }
+   
+    this->m_GH.start();
     
     this->print_Start_Menu();
 }

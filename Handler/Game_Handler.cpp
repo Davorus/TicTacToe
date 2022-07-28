@@ -2,18 +2,19 @@
 #include <iostream>
 //----------------------------------------------------------------
 #include "Game_Handler.hpp"
+#include "../Utilities.hpp"
 //----------------------------------------------------------------
 
 Game_Handler::Game_Handler()
 {
 }
 
-void Game_Handler::start(int p_Player_Amount, Bot_Type bot1) const
+void Game_Handler::set_player_amount(int p_player_amount)
 {
-    std::cout << "Zwei Spieler Modus" << std::endl;
+    this->m_player_amount = p_player_amount;
 }
 
-void Game_Handler::start(int p_Player_Amount, Bot_Type bot1, Bot_Type bot2) const
+void Game_Handler::start() const
 {
-    std::cout << "Drei Spieler Modus" << std::endl;
+    
 }

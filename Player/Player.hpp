@@ -3,7 +3,9 @@
 
 class Player
 {
-
+    protected:
+        int m_stone;                            //Should save what number the player will place on the field 
+        virtual void player_move()=0;
 };
 
 #endif

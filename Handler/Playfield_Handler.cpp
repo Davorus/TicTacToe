@@ -1,5 +1,6 @@
 //----------------------------------------------------------------
 #include <iostream>
+#include <random>
 //----------------------------------------------------------------
 #include "Playfield_Handler.hpp"
 #include "../Utilities.hpp"
@@ -9,7 +10,8 @@ Playfield_Handler::Playfield_Handler()
     :m_gameStarted{true}
     ,m_rows{0}
     ,m_columns{0}    
-{}
+{
+}
 
 void Playfield_Handler::initialize_Playfield(int rows, int columns)
 {
@@ -72,6 +74,7 @@ bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)
         else
         {
             this->m_playfield.at(y_axis).at(x_axis) = player_move;
+            return true;
         }
     }
     return false;

@@ -3,7 +3,7 @@
 
 class Player
 {
-    protected:                         //Should save what number the player will place on the field 
+    public:                         //Should save what number the player will place on the field 
         virtual void player_move();
 };
 

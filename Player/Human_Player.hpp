@@ -8,10 +8,12 @@ class Human_Player : public Player
 {
     private:
         int m_stone;
-    public:
         Playfield_Handler* m_PH;
-        Human_Player(Playfield_Handler* p_PH, int stone);
+    public:
+        Human_Player(int stone);
+        void set_playfield(Playfield_Handler* p_PH);
         void player_move();
+        void print_playfield();
 };
 
 #endif

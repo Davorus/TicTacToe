@@ -130,8 +130,11 @@ void Gamesetup_Handler::play()
     
     this->initialize_players();
    
-    this->m_GH.start();
+    this->m_GH.start(this->m_PH);
     
+    MyUtils::print("Enter any key to return back to the main menu...");
+    MyUtils::wait_for_enter();
+
     this->print_Start_Menu();
 }
 

@@ -22,7 +22,7 @@ Player_Type Gamesetup_Handler::get_Player_Type() const
     int input;
     do
     {
-        MyUtils::print("Enter type for Bot1");
+        MyUtils::print("Enter type for Player");
         MyUtils::input(input);
         
         if(input < 1 || input > 3)

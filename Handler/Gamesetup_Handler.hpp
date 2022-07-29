@@ -10,18 +10,18 @@
 class Gamesetup_Handler
 {
     private:
-        const Game_Handler m_GH;
+        Game_Handler m_GH;
         int get_Menu_input() const;
-        void set_up_mode(Menu_Options mode) const;
-        void credits() const;
-        void gamerules() const;
-        void play() const;
-        int initialize_players() const;
+        void set_up_mode(Menu_Options mode);
+        void credits();
+        void gamerules();
+        void play();
+        int initialize_players();
     public:
         Gamesetup_Handler();
         Bot_Type get_Bot1_Type() const;
         Bot_Type get_Bot2_Type() const;
-        void print_Start_Menu() const;
+        void print_Start_Menu();
 };
 
 #endif

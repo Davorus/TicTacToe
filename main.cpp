@@ -8,11 +8,6 @@
 
 int main()
 {
-    /*
     Gamesetup_Handler h;
     h.print_Start_Menu();
-    */
-    Playfield_Handler* ph = new Playfield_Handler();
-    ph->initialize_Playfield(5,5);
-    Human_Player hp(ph, 1);
 }

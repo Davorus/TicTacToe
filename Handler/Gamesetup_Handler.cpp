@@ -73,7 +73,7 @@ int Gamesetup_Handler::get_Menu_input() const
     return input;
 }
 
-void Gamesetup_Handler::credits() const
+void Gamesetup_Handler::credits()
 {
     MyUtils::clear_screen();
     MyUtils::print("Credits are overrated");
@@ -93,7 +93,7 @@ void Gamesetup_Handler::credits() const
     this->print_Start_Menu();
 }
 
-void Gamesetup_Handler::gamerules() const
+void Gamesetup_Handler::gamerules()
 {
     MyUtils::clear_screen();
     MyUtils::print("Gamerules:");
@@ -112,7 +112,7 @@ void Gamesetup_Handler::gamerules() const
     this->print_Start_Menu();
 }
 
-int Gamesetup_Handler::initialize_players() const
+int Gamesetup_Handler::initialize_players()
 {
     int amount_of_players = -1;
     do
@@ -123,7 +123,7 @@ int Gamesetup_Handler::initialize_players() const
     return amount_of_players;
 }
 
-void Gamesetup_Handler::play() const
+void Gamesetup_Handler::play()
 {
     int player_amount = this->initialize_players();
    
@@ -133,7 +133,7 @@ void Gamesetup_Handler::play() const
     this->print_Start_Menu();
 }
 
-void Gamesetup_Handler::set_up_mode(Menu_Options mode) const
+void Gamesetup_Handler::set_up_mode(Menu_Options mode)
 {
     switch(mode)
     {
@@ -145,7 +145,7 @@ void Gamesetup_Handler::set_up_mode(Menu_Options mode) const
     }
 }
 
-void Gamesetup_Handler::print_Start_Menu() const
+void Gamesetup_Handler::print_Start_Menu()
 {
     MyUtils::clear_screen();
     MyUtils::print("***********MENU***********");

@@ -6,18 +6,13 @@ Human_Player::Human_Player(int stone)
 {    
 }
 
-void Human_Player::set_playfield(Playfield_Handler* p_PH)
-{
-    this->m_PH = p_PH;
-}
-
-void Human_Player::print_playfield()
+void Human_Player::print_playfield(Playfield_Handler* p_PH)
 {
     MyUtils::print("SPIELERFELD:");
-    this->m_PH->print_Playfield();
+    p_PH->print_Playfield();
 }
 
-void Human_Player::player_move()
+void Human_Player::player_move(Playfield_Handler* p_PH)
 {
     MyUtils::print("Enter y level");
     int y_axis;
@@ -26,5 +21,5 @@ void Human_Player::player_move()
     int x_axis;
     MyUtils::input(x_axis);
 
-    this->m_PH->player_move(y_axis, x_axis, m_stone);
+    p_PH->player_move(y_axis, x_axis, m_stone);
 }

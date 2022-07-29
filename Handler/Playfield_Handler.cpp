@@ -31,7 +31,7 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
 
 void Playfield_Handler::print_Playfield() const
 {
-    MyUtils::clear_screen();
+    //MyUtils::clear_screen();
     for(int i = 0; i < this->m_rows; i++)
     {
         for(int j = 0; j < this->m_columns; j++)

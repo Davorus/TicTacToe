@@ -2,19 +2,22 @@
 #ifndef _GAME_HANDLER_HPP_INCLUDED
 #define _GAME_HANDLER_HPP_INCLUDED
 //----------------------------------------------------------------
+#include <vector>
 //----------------------------------------------------------------
 #include "EnumClasses.hpp"
 #include "Playfield_Handler.hpp"
 #include "Player.hpp"
+#include "EnumClasses.hpp"
 //----------------------------------------------------------------
 
 class Game_Handler
 {
     private:
-        int m_player_amount;
+        std::vector<Player> player;
+        std::vector<Player_Type> to_be_set_players;
     public:
         Game_Handler();
-        void set_player_amount(int p_player_amount);
+        void set_players(Player_Type type);
         void start() const;
 };
 

@@ -9,58 +9,35 @@
 
 Gamesetup_Handler::Gamesetup_Handler()
 {
+    this->m_PH = new Playfield_Handler();
 }
 
-Bot_Type Gamesetup_Handler::get_Bot1_Type() const
+Player_Type Gamesetup_Handler::get_Player_Type() const
 {
     MyUtils::clear_screen();
-    MyUtils::print("Choose what bot1 should be:");
-    MyUtils::print("   1. Random Bot");
-    MyUtils::print("   2. Smart Bot");
+    MyUtils::print("Choose what the next player should be:");
+    MyUtils::print("   1. Human Player");
+    MyUtils::print("   2. Random Bot");
+    MyUtils::print("   3. Smart Bot");
     int input;
     do
     {
         MyUtils::print("Enter type for Bot1");
         MyUtils::input(input);
         
-        if(input < 1 || input > 2)
+        if(input < 1 || input > 3)
             MyUtils::print("Enter valid input");
         else
         {
             if(input == 1)
-                return Bot_Type::RandomBot;
+                return Player_Type::Human;
             else if(input == 2)
-                return Bot_Type::SmartBot;
+                return Player_Type::RandomBot;
+            else if(input == 3)
+                return Player_Type::SmartBot;
         }
-    } while (input < 1 || input > 2);
-    return Bot_Type::Error;
-}
-
-Bot_Type Gamesetup_Handler::get_Bot2_Type() const
-{
-    MyUtils::wait_for_enter();
-    MyUtils::print("Choose what bot2 should be:");
-    MyUtils::print("   1. Random Bot");
-    MyUtils::print("   2. Smart Bot");
-    int input;
-    do
-    {
-        MyUtils::print("Enter type for Bot2");
-        MyUtils::input(input);
-        
-        if(input < 1 || input > 2)
-        {
-            MyUtils::print("Enter valid input");
-        }
-        else
-        {
-            if(input == 1)
-                return Bot_Type::RandomBot;
-            else if(input == 2)
-                return Bot_Type::SmartBot;
-        }
-    } while (input < 1 || input > 2);
-    return Bot_Type::Error;
+    } while (input < 1 || input > 3);
+    return Player_Type::Error;
 }
 
 int Gamesetup_Handler::get_Menu_input() const
@@ -112,7 +89,7 @@ void Gamesetup_Handler::gamerules()
     this->print_Start_Menu();
 }
 
-int Gamesetup_Handler::initialize_players()
+void Gamesetup_Handler::initialize_players()
 {
     int amount_of_players = -1;
     do
@@ -120,14 +97,33 @@ int Gamesetup_Handler::initialize_players()
         MyUtils::print("Enter amount of players(max 3):");
         MyUtils::input(amount_of_players);
     } while (amount_of_players <= 1 || amount_of_players > 3);
-    return amount_of_players;
+
+    switch (amount_of_players)
+    {
+    case 2:
+        {
+            this->m_GH.set_players(this->get_Player_Type());
+            this->m_GH.set_players(this->get_Player_Type());
+        }
+        break;
+    default:
+        return;
+    }
 }
 
 void Gamesetup_Handler::play()
 {
-    int player_amount = this->initialize_players();
+    MyUtils::print("Enter rows levels for playfield");
+    int rows;
+    MyUtils::input(rows);
+    MyUtils::print("Enter columns levels for playfield");
+    int columns;
+    MyUtils::input(columns);
+    
+    this->m_PH->initialize_Playfield(rows, columns);
+    
+    this->initialize_players();
    
-    this->m_GH.set_player_amount(player_amount);
     this->m_GH.start();
     
     this->print_Start_Menu();

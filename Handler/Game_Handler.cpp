@@ -9,12 +9,12 @@ Game_Handler::Game_Handler()
 {
 }
 
-void Game_Handler::set_player_amount(int p_player_amount)
+void Game_Handler::set_players(Player_Type type)
 {
-    this->m_player_amount = p_player_amount;
+    this->to_be_set_players.push_back(type);
 }
 
 void Game_Handler::start() const
 {
-    
+
 }

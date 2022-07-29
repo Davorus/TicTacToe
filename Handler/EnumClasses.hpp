@@ -1,12 +1,13 @@
 #ifndef _ENUMCLASSES_HPP_INCLUDED
 #define _ENUMCLASSES_HPP_INCLUDED
 
-enum class Bot_Type
+enum class Player_Type
 {
     NotDeclared = 0,
-    RandomBot = 1,
-    SmartBot = 2,
-    Error = 3
+    Human = 1,
+    RandomBot = 2,
+    SmartBot = 3,
+    Error = 4
 };
 
 enum class Menu_Options

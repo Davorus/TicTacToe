@@ -42,7 +42,7 @@ Player_Type Gamesetup_Handler::get_Player_Type() const
 
 int Gamesetup_Handler::get_Menu_input() const
 {
-    int input = 0;
+    int input = -1;
     do
     {
         MyUtils::input(input);
@@ -102,8 +102,14 @@ void Gamesetup_Handler::initialize_players()
     {
     case 2:
         {
-            this->m_GH.set_players(this->get_Player_Type());
-            this->m_GH.set_players(this->get_Player_Type());
+            for(int i = 0; i < 2; i++)
+                this->m_GH.get_players(this->get_Player_Type());
+        }
+        break;
+    case 3:
+        {
+            for(int i = 0; i < 3; i++)
+                this->m_GH.get_players(this->get_Player_Type());
         }
         break;
     default:

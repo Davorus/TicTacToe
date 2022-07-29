@@ -9,9 +9,14 @@ Game_Handler::Game_Handler()
 {
 }
 
-void Game_Handler::set_players(Player_Type type)
+void Game_Handler::get_players(Player_Type type)
 {
     this->to_be_set_players.push_back(type);
+}
+
+void Game_Handler::set_players()
+{
+
 }
 
 void Game_Handler::start() const

@@ -127,6 +127,7 @@ void Gamesetup_Handler::play() const
 {
     int player_amount = this->initialize_players();
    
+    this->m_GH.set_player_amount(player_amount);
     this->m_GH.start();
     
     this->print_Start_Menu();

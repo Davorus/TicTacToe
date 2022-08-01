@@ -31,7 +31,7 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
 
 void Playfield_Handler::print_Playfield() const
 {
-    //MyUtils::clear_screen();
+    MyUtils::clear_screen();
     for(int i = 0; i < this->m_rows; i++)
     {
         for(int j = 0; j < this->m_columns; j++)
@@ -56,6 +56,19 @@ bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
     {
         return true;
     }
+}
+
+bool Playfield_Handler::check_playfield_full()
+{
+    for(int i = 0; i < this->m_rows; i++)
+    {
+        for(int j = 0; j < this->m_columns; j++)
+        {
+            if(this->m_playfield.at(i).at(j) != 0)
+                return false;
+        }
+    }
+    return true;
 }
 
 bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)

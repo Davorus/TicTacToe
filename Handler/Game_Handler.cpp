@@ -41,5 +41,27 @@ void Game_Handler::start(Playfield_Handler* p_PH)
 {
     this->set_players();
     
-    
+    Player_Type con_player_type;
+    bool game_won = false;
+    do
+    {
+        for(int i = 0; i < this->m_player.size(); i++)
+        {
+            this->m_playfield->print_Playfield();
+            con_player_type = this->m_player.at(i)->get_player_type();
+            if(con_player_type == Player_Type::Human)
+            {
+                this->m_player.at(i)->player_move(this->m_playfield);
+            }
+            if(con_player_type == Player_Type::RandomBot)
+            {
+                this->m_player.at(i)->player_move();
+            }
+            if(con_player_type == Player_Type::SmartBot)
+            {
+                this->m_player.at(i)->player_move();
+            }
+            
+        }
+    } while (game_won == false);
 }

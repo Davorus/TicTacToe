@@ -19,6 +19,7 @@ class Playfield_Handler
         void initialize_Playfield(int rows, int columns);
         void print_Playfield() const;
         bool player_move(int y_axis, int x_axis, int player_move);
+        bool check_playfield_full();
 };
 
 #endif

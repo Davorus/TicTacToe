@@ -44,11 +44,11 @@ void Playfield_Handler::print_Playfield() const
 
 bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
 {
-    if(y_axis < 0 || y_axis > this->m_rows)
+    if(y_axis < 0 || y_axis > this->m_rows-1)
     {
         return false;
     }
-    else if(x_axis < 0 || x_axis > this->m_columns)
+    else if(x_axis < 0 || x_axis > this->m_columns-1)
     {
         return false;
     }

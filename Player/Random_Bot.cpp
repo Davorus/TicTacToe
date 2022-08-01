@@ -12,3 +12,8 @@ Player_Type Random_Bot::get_player_type()
 {
     return Player_Type::RandomBot;
 }
+
+void Random_Bot::player_move(Playfield_Handler* p_PH)
+{
+    
+}

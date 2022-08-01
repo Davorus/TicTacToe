@@ -3,10 +3,6 @@
 #include "Player.hpp"
 //----------------------------------------------------------------
 
-void Player::player_move()
-{
-}
-
 void Player::player_move(Playfield_Handler* p_PH)
 {
 }

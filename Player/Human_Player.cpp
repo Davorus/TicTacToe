@@ -14,7 +14,7 @@ Player_Type Human_Player::get_player_type()
     return Player_Type::Human;
 }
 
-void Human_Player::player_move(Playfield_Handler* p_PH)
+bool Human_Player::player_move(Playfield_Handler* p_PH)
 {
     MyUtils::print("Enter y level");
     int y_axis;
@@ -23,5 +23,5 @@ void Human_Player::player_move(Playfield_Handler* p_PH)
     int x_axis;
     MyUtils::input(x_axis);
 
-    p_PH->player_move(y_axis, x_axis, m_stone);
+    return p_PH->player_move(y_axis, x_axis, m_stone);
 }

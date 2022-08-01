@@ -3,6 +3,7 @@
 #include "Player.hpp"
 //----------------------------------------------------------------
 
-void Player::player_move(Playfield_Handler* p_PH)
+bool Player::player_move(Playfield_Handler* p_PH)
 {
+    return true;
 }

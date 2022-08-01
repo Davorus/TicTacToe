@@ -80,6 +80,16 @@ bool Playfield_Handler::check_playfield_full()
     }
 }
 
+int Playfield_Handler::get_rows()
+{
+    return this->m_rows;
+}
+
+int Playfield_Handler::get_columns()
+{
+    return this->m_columns;
+}
+
 bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)
 {
     bool legal = false;

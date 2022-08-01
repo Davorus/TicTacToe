@@ -14,7 +14,7 @@ void Game_Handler::set_players(Player_Type type)
     this->m_to_be_set_players.push_back(type);
 }
 
-void Game_Handler::set_players()
+void Game_Handler::initialize_players()
 {
     for(int i = 0; i < this->m_to_be_set_players.size(); i++)
     {
@@ -39,21 +39,25 @@ void Game_Handler::set_players()
 
 void Game_Handler::start(Playfield_Handler* p_PH)
 {
-    this->set_players();
+    this->initialize_players();
     
-    Player_Type con_player_type;
     bool game_won = false;
     do
     {
+        p_PH->print_Playfield();
+        bool player_legal_move = false;
         for(int i = 0; i < this->m_player.size(); i++)
-        {
+        {    
+            do
+            {
+                player_legal_move = this->m_player.at(i)->player_move(p_PH);
+                p_PH->print_Playfield();
+            } while (player_legal_move == false);
+            
             if(p_PH->check_playfield_full())
             {
                 return;
             }
-
-            p_PH->print_Playfield();
-            this->m_player.at(i)->player_move(p_PH);    
         }
     } while (game_won == false);
 }

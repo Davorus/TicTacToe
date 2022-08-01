@@ -12,7 +12,7 @@ Gamesetup_Handler::Gamesetup_Handler()
     this->m_PH = new Playfield_Handler();
 }
 
-Player_Type Gamesetup_Handler::get_Player_Type() const
+Player_Type Gamesetup_Handler::set_Player_Type() const
 {
     MyUtils::clear_screen();
     MyUtils::print("Choose what the next player should be:");
@@ -103,13 +103,13 @@ void Gamesetup_Handler::initialize_players()
     case 2:
         {
             for(int i = 0; i < 2; i++)
-                this->m_GH.get_players(this->get_Player_Type());
+                this->m_GH.set_players(this->set_Player_Type());
         }
         break;
     case 3:
         {
             for(int i = 0; i < 3; i++)
-                this->m_GH.get_players(this->get_Player_Type());
+                this->m_GH.set_players(this->set_Player_Type());
         }
         break;
     default:

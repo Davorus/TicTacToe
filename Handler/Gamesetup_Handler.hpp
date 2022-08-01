@@ -5,7 +5,7 @@
 #include <vector>
 //----------------------------------------------------------------
 #include "Game_Handler.hpp"
-#include "EnumClasses.hpp"
+#include "../EnumClasses.hpp"
 #include "Playfield_Handler.hpp"
 #include "../Player/Human_Player.hpp"
 #include "../Player/Random_Bot.hpp"
@@ -25,7 +25,7 @@ class Gamesetup_Handler
         void initialize_players();
     public:
         Gamesetup_Handler();
-        Player_Type get_Player_Type() const;
+        Player_Type set_Player_Type() const;
         void print_Start_Menu();
 };
 

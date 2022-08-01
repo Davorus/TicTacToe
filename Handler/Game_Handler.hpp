@@ -4,7 +4,7 @@
 //----------------------------------------------------------------
 #include <vector>
 //----------------------------------------------------------------
-#include "EnumClasses.hpp"
+#include "../EnumClasses.hpp"
 #include "Playfield_Handler.hpp"
 #include "Player.hpp"
 #include "Human_Player.hpp"
@@ -21,7 +21,7 @@ class Game_Handler
         void set_players();
     public:
         Game_Handler();
-        void get_players(Player_Type type);
+        void set_players(Player_Type type);
         void start(Playfield_Handler* p_PH);
 };
 

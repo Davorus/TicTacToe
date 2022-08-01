@@ -1,15 +1,17 @@
+//----------------------------------------------------------------
+//----------------------------------------------------------------
 #include "Human_Player.hpp"
 #include "../Utilities.hpp"
+//----------------------------------------------------------------
 
 Human_Player::Human_Player(int stone)
     :m_stone{stone}
-{    
+{
 }
 
-void Human_Player::print_playfield(Playfield_Handler* p_PH)
+int Human_Player::get_player_type()
 {
-    MyUtils::print("SPIELERFELD:");
-    p_PH->print_Playfield();
+    return static_cast<int>(Player_Type::Human);
 }
 
 void Human_Player::player_move(Playfield_Handler* p_PH)

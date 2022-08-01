@@ -9,7 +9,7 @@
 class Random_Bot : public Player
 {
     public:
-        int get_player_type();
+        Player_Type get_player_type();
 };
 
 #endif

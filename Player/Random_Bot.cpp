@@ -3,7 +3,7 @@
 #include "Random_Bot.hpp"
 //----------------------------------------------------------------
 
-int Random_Bot::get_player_type()
+Player_Type Random_Bot::get_player_type()
 {
-    return static_cast<int>(Player_Type::RandomBot);
+    return Player_Type::RandomBot;
 }

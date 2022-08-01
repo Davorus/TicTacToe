@@ -3,7 +3,7 @@
 #include "Smart_Bot.hpp"
 //----------------------------------------------------------------
 
-int Smart_Bot::get_player_type()
+Player_Type Smart_Bot::get_player_type()
 {
-    return static_cast<int>(Player_Type::SmartBot);
+    return Player_Type::SmartBot;
 }

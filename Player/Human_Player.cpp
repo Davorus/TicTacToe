@@ -9,9 +9,9 @@ Human_Player::Human_Player(int stone)
 {
 }
 
-int Human_Player::get_player_type()
+Player_Type Human_Player::get_player_type()
 {
-    return static_cast<int>(Player_Type::Human);
+    return Player_Type::Human;
 }
 
 void Human_Player::player_move(Playfield_Handler* p_PH)

@@ -47,6 +47,11 @@ void Game_Handler::start(Playfield_Handler* p_PH)
     {
         for(int i = 0; i < this->m_player.size(); i++)
         {
+            if(this->m_playfield->check_playfield_full())
+            {
+                return;
+            }
+
             this->m_playfield->print_Playfield();
             con_player_type = this->m_player.at(i)->get_player_type();
             if(con_player_type == Player_Type::Human)

@@ -1,6 +1,9 @@
+//----------------------------------------------------------------
 #ifndef _UTILITIES_HPP_
 #define _UTILITIES_HPP_
-
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+//----------------------------------------------------------------
 /*
     Über .hpp gelöst, da der Gnu Compiler keine Module auflösen kann und
     ich oft verwendete Befehle irgendwie auslagern wollte

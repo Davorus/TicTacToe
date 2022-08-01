@@ -17,7 +17,6 @@ class Game_Handler
     private:
         std::vector<Player*> m_player;
         std::vector<Player_Type> m_to_be_set_players;
-        Playfield_Handler* m_playfield;
         void set_players();
     public:
         Game_Handler();

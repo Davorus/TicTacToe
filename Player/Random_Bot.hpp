@@ -8,7 +8,10 @@
 
 class Random_Bot : public Player
 {
+    private:
+        int m_stone;
     public:
+        Random_Bot(int stone);
         Player_Type get_player_type();
 };
 

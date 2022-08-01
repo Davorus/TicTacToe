@@ -60,15 +60,24 @@ bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
 
 bool Playfield_Handler::check_playfield_full()
 {
+    int count_zero = 0;
     for(int i = 0; i < this->m_rows; i++)
     {
         for(int j = 0; j < this->m_columns; j++)
         {
-            if(this->m_playfield.at(i).at(j) != 0)
-                return false;
+            if(this->m_playfield.at(i).at(j) == 0)
+                count_zero++;
         }
     }
-    return true;
+
+    if(count_zero == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)

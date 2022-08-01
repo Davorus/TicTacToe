@@ -26,12 +26,12 @@ void Game_Handler::set_players()
         }
         if(temp == Player_Type::RandomBot)
         {
-            Random_Bot* r = new Random_Bot();
+            Random_Bot* r = new Random_Bot(i+1);
             this->m_player.push_back(r);
         }
         if(temp == Player_Type::SmartBot)
         {
-            Smart_Bot* s = new Smart_Bot();
+            Smart_Bot* s = new Smart_Bot(i+1);
             this->m_player.push_back(s);
         }
     }
@@ -47,16 +47,16 @@ void Game_Handler::start(Playfield_Handler* p_PH)
     {
         for(int i = 0; i < this->m_player.size(); i++)
         {
-            if(this->m_playfield->check_playfield_full())
+            if(p_PH->check_playfield_full())
             {
                 return;
             }
 
-            this->m_playfield->print_Playfield();
+            p_PH->print_Playfield();
             con_player_type = this->m_player.at(i)->get_player_type();
             if(con_player_type == Player_Type::Human)
             {
-                this->m_player.at(i)->player_move(this->m_playfield);
+                this->m_player.at(i)->player_move(p_PH);
             }
             if(con_player_type == Player_Type::RandomBot)
             {

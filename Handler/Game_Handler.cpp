@@ -10,6 +10,15 @@ Game_Handler::Game_Handler()
 {
 }
 
+Game_Handler::~Game_Handler()
+{
+    int size = this->m_player.size();
+    for(int i = 0; i < size; i++)
+    {
+        delete this->m_player.at(i);
+    }
+}
+
 void Game_Handler::set_players(Player_Type type)
 {
     this->m_to_be_set_players.push_back(type);

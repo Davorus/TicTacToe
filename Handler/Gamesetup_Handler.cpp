@@ -13,6 +13,11 @@ Gamesetup_Handler::Gamesetup_Handler()
     this->m_PH = new Playfield_Handler(); 
 }
 
+Gamesetup_Handler::~Gamesetup_Handler()
+{
+    delete this->m_PH;
+}
+
 //Player can choose what players he wants to play against
 Player_Type Gamesetup_Handler::set_Player_Type() const
 {
@@ -124,7 +129,7 @@ void Gamesetup_Handler::play()
     MyUtils::print("Enter any key to return back to the main menu...");
     MyUtils::wait_for_enter();
 
-    this->print_Start_Menu();
+    return;
 }
 
 void Gamesetup_Handler::set_up_mode(Menu_Options mode)

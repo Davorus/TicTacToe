@@ -26,9 +26,9 @@ class Gamesetup_Handler
         bool check_horizontal_winner(int stone);
     public:
         Gamesetup_Handler();
+        ~Gamesetup_Handler();
         Player_Type set_Player_Type() const;
         void print_Start_Menu();
-        bool check_winner(int stone);
 };
 
 #endif

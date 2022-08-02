@@ -20,6 +20,7 @@ class Game_Handler
         void initialize_players();
     public:
         Game_Handler();
+        ~Game_Handler();
         void set_players(Player_Type type);
         void start(Playfield_Handler* p_PH);
 };

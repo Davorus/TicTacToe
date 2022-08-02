@@ -8,7 +8,7 @@
 int main()
 {
     bool exit = false;
-    while(exit == false)
+    while (exit == false)
     {
         Gamesetup_Handler h;
         h.print_Start_Menu();
@@ -19,7 +19,7 @@ int main()
         MyUtils::print("   2: No");
         int user_input = 0;
         MyUtils::input(user_input);
-        if(user_input == 1)
+        if (user_input == 1)
         {
             exit = true;
         }

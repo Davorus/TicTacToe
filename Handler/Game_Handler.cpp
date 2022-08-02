@@ -1,5 +1,6 @@
 //----------------------------------------------------------------
 #include <iostream>
+#include <unistd.h>
 //----------------------------------------------------------------
 #include "Game_Handler.hpp"
 #include "../Utilities.hpp"
@@ -59,15 +60,20 @@ void Game_Handler::start(Playfield_Handler* p_PH)
                 p_PH->print_Playfield();
             } while (player_legal_move == false);
             
+            if(p_PH->check_winner(this->m_player.at(i)->get_stone()) == true)
+            {
+                MyUtils::wait_for_enter();
+                return;
+            }
+
             /*
-                If no marks can be placed anymore, sinply no one won
+                If no marks can be placed anymore, simply no one won
                 and the game ends
             */
             if(p_PH->check_playfield_full())
             {
                 MyUtils::print("No moves possible anymore");
-                MyUtils::sleep(2);
-                MyUtils::print("Press any key to return to the main menu...");
+                sleep(2);
                 MyUtils::wait_for_enter();
                 return;
             }

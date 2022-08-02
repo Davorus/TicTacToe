@@ -99,7 +99,75 @@ int Playfield_Handler::get_columns()
     return this->m_columns;
 }
 
-bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)
+bool Playfield_Handler::check_horizontal_winner(int stone)
+{
+    int check_stone = 0;
+    for(int i = 0; i < this->m_columns; i++)
+    {
+        check_stone = 0;
+        for(int j = 0; j < this->m_rows; j++)
+        {
+            if(this->m_playfield.at(i).at(j) == stone)
+            {
+                ++check_stone;
+                if(check_stone == 3)
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool Playfield_Handler::check_vertical_winner(int stone)
+{
+    int check_stone = 0;
+    for(int i = 0; i < this->m_rows; i++)
+    {
+        check_stone = 0;
+        for(int j = 0; j < this->m_columns; j++)
+        {
+            if(this->m_playfield.at(i).at(j) == stone)
+            {
+                ++check_stone;
+                if(check_stone == 3)
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool Playfield_Handler::check_diagonal_winner(int stone)
+{
+    bool won = false;
+    return won;
+}
+
+bool Playfield_Handler::check_winner(int stone)
+{
+    if(this->check_horizontal_winner(stone) == true)
+    {
+        std::cout << "Player " << stone << " has won!" << std::endl;
+        return true;
+    }
+    if(this->check_vertical_winner(stone) == true)
+    {
+        std::cout << "Player " << stone << " has won!" << std::endl;
+        return true;
+    }
+    if(this->check_diagonal_winner(stone) == true)
+    {
+        std::cout << "Player " << stone << " has won!" << std::endl;
+        return true;
+    }
+    return false;
+}
+
+bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_stone)
 {
     bool legal = false;
     legal = this->check_for_legal_play(y_axis, x_axis);
@@ -115,7 +183,7 @@ bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)
         }
         else
         {
-            this->m_playfield.at(y_axis).at(x_axis) = player_move; //sets mark of player if field is truely 0
+            this->m_playfield.at(y_axis).at(x_axis) = player_stone; //sets mark of player if field is truely 0
             return true;
         }
     }

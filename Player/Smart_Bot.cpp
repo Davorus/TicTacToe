@@ -20,3 +20,8 @@ bool Smart_Bot::player_move(Playfield_Handler* p_PH)
 {
     return true;
 }
+
+int Smart_Bot::get_stone()
+{
+    return this->m_stone;
+}

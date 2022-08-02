@@ -29,3 +29,8 @@ bool Random_Bot::player_move(Playfield_Handler* p_PH)
     
     return p_PH->player_move(r_distr(reng), c_distr(reng), this->m_stone);
 }
+
+int Random_Bot::get_stone()
+{
+    return this->m_stone;
+}

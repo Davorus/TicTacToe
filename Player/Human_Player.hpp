@@ -16,6 +16,7 @@ class Human_Player : public Player
         Player_Type get_player_type();
         void print_playfield(Playfield_Handler* p_PH);
         bool player_move(Playfield_Handler* p_PH);
+        int get_stone();
 };
 
 #endif

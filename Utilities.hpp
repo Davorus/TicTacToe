@@ -4,7 +4,6 @@
 //----------------------------------------------------------------
 #include <iostream>
 #include <conio.h>
-#include <unistd.h>
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 /*
@@ -15,11 +14,11 @@
 namespace MyUtils
 {
     template <class T>
-    static void print(T &p_input)
+    static void print(const T &p_input)
     {
         std::cout << p_input << std::endl;
     }
-
+    
     template <class T>
     static void input(T &input)
     {
@@ -35,11 +34,6 @@ namespace MyUtils
     static void wait_for_enter()
     {
         getch();
-    }
-
-    static void sleep(float time)
-    {
-        sleep(time);
     }
 }
 

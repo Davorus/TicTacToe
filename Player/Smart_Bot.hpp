@@ -14,6 +14,7 @@ class Smart_Bot : public Player
         Smart_Bot(int stone);
         bool player_move(Playfield_Handler* p_PH);
         Player_Type get_player_type();
+        int get_stone();
 };
 
 #endif

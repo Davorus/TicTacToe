@@ -28,3 +28,8 @@ bool Human_Player::player_move(Playfield_Handler* p_PH)
 
     return p_PH->player_move(y_axis, x_axis, m_stone);
 }
+
+int Human_Player::get_stone()
+{
+    return this->m_stone;
+}

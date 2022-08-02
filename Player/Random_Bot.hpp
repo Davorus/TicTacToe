@@ -14,6 +14,7 @@ class Random_Bot : public Player
         Random_Bot(int stone);
         Player_Type get_player_type();
         bool player_move(Playfield_Handler* p_PH);
+        int get_stone();
 };
 
 #endif

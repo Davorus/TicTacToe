@@ -1,6 +1,7 @@
 //----------------------------------------------------------------
 #include <iostream>
 #include <stdlib.h>
+#include <unistd.h>
 //----------------------------------------------------------------
 #include "Gamesetup_Handler.hpp"
 #include "../Utilities.hpp"
@@ -57,15 +58,15 @@ void Gamesetup_Handler::credits()
 {
     MyUtils::clear_screen();
     MyUtils::print("Credits are overrated");
-    MyUtils::sleep(4);
+    sleep(4);
     MyUtils::print("BUT!");
-    MyUtils::sleep(1.5);
+    sleep(1.5);
     MyUtils::print("This game belongs to David Movsesjan who made it");
-    MyUtils::sleep(1.5);
+    sleep(1.5);
     MyUtils::print("as a university project. This credits aren't to be");
-    MyUtils::sleep(1.5);
+    sleep(1.5);
     MyUtils::print("taken too serious.");
-    MyUtils::sleep(4);
+    sleep(4);
     MyUtils::print("Or maybe they should?");
     MyUtils::print("Press any key to return to the main menu...");
     MyUtils::wait_for_enter();
@@ -78,15 +79,15 @@ void Gamesetup_Handler::gamerules()
 {
     MyUtils::clear_screen();
     MyUtils::print("Gamerules:");
-    MyUtils::sleep(3);
+    sleep(3);
     MyUtils::print("Try to place 3 of your moves in a");
-    MyUtils::sleep(1);
+    sleep(1);
     MyUtils::print("    1. horizontal");
-    MyUtils::sleep(1);
+    sleep(1);
     MyUtils::print("    2. vertical");
-    MyUtils::sleep(1);
+    sleep(1);
     MyUtils::print("    3. diagonal");
-    MyUtils::sleep(1);
+    sleep(1);
     MyUtils::print("way to win the game!");
     MyUtils::print("Press any key to return to the main menu...");
     MyUtils::wait_for_enter();

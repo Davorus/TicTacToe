@@ -128,7 +128,7 @@ bool Playfield_Handler::check_vertical_winner(int stone)
         check_stone = 0;
         for(int j = 0; j < this->m_columns; j++)
         {
-            if(this->m_playfield.at(i).at(j) == stone)
+            if(this->m_playfield.at(j).at(i) == stone)
             {
                 ++check_stone;
                 if(check_stone == 3)

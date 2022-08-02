@@ -8,9 +8,23 @@ Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`
 
 ## How to run the code
 
-All you have to open Visual Studio Code, you need to have a C++ compiler and a code runner
+1. Open Visual Studio Code
+2. Open the repo in Visual Studio Code
+3. Open `main.cpp`
+4. Compile the `main.cpp` file
+
+---
+
+## Extensions
+
+* I implemented a complete menu lead, instead of opening and compiling it once you can play more games before it closes
+* Outsourced code snippets in only functional header, wanted to use `modules` but the gnu compiler isn't capable in using them
+  
+---
 
 ## Sources
 
 * For the playfield I went through this tutorial: [_GeeksForGeeks_](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/)
 * Random number generator: [_Stackoverflow_](https://stackoverflow.com/questions/13445688/how-to-generate-a-random-number-in-c)
+* Console clearing: [_DelftStack_](https://www.delftstack.com/howto/cpp/how-to-clear-console-cpp/)
+* Intended output delay on console: [_Stackoverflow_](https://stackoverflow.com/questions/27215705/how-to-delay-output-in-c)

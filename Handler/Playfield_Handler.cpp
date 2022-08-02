@@ -25,9 +25,9 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
     //Instanciation of a temporary 2D vector as playfield
     std::vector<std::vector<int>> tempVector(rows, std::vector<int>(columns)); 
 
-    for(int i = 0; i < rows; i++)
+    for (int i = 0; i < rows; i++)
     {
-        for(int j = 0; j < columns; j++)
+        for (int j = 0; j < columns; j++)
         {
             tempVector.at(i).at(j) = 0;
         }
@@ -39,9 +39,9 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
 void Playfield_Handler::print_Playfield() const
 {
     MyUtils::clear_screen();
-    for(int i = 0; i < this->m_rows; i++)
+    for (int i = 0; i < this->m_rows; i++)
     {
-        for(int j = 0; j < this->m_columns; j++)
+        for (int j = 0; j < this->m_columns; j++)
         {
             std::cout << this->m_playfield.at(i).at(j) << " ";
         }
@@ -52,11 +52,11 @@ void Playfield_Handler::print_Playfield() const
 bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
 {
     //-1 for rows in columns, indexes in arrays start counting by 0
-    if(y_axis < 0 || y_axis > this->m_rows-1)
+    if (y_axis < 0 || y_axis > this->m_rows-1)
     {
         return false;
     }
-    else if(x_axis < 0 || x_axis > this->m_columns-1)
+    else if (x_axis < 0 || x_axis > this->m_columns-1)
     {
         return false;
     }
@@ -70,11 +70,11 @@ bool Playfield_Handler::check_playfield_full()
 {
     //Count the zeros in playfield, if there are none, playfield is full
     int count_zero = 0;
-    for(int i = 0; i < this->m_rows; i++)
+    for (int i = 0; i < this->m_rows; i++)
     {
-        for(int j = 0; j < this->m_columns; j++)
+        for (int j = 0; j < this->m_columns; j++)
         {
-            if(this->m_playfield.at(i).at(j) == 0)
+            if (this->m_playfield.at(i).at(j) == 0)
                 count_zero++;
         }
     }
@@ -102,15 +102,15 @@ int Playfield_Handler::get_columns()
 bool Playfield_Handler::check_horizontal_winner(int stone)
 {
     int check_stone = 0;
-    for(int i = 0; i < this->m_columns; i++)
+    for (int i = 0; i < this->m_columns; i++)
     {
         check_stone = 0;
-        for(int j = 0; j < this->m_rows; j++)
+        for (int j = 0; j < this->m_rows; j++)
         {
-            if(this->m_playfield.at(i).at(j) == stone)
+            if (this->m_playfield.at(i).at(j) == stone)
             {
                 ++check_stone;
-                if(check_stone == 3)
+                if (check_stone == 3)
                 {
                     return true;
                 }
@@ -123,15 +123,15 @@ bool Playfield_Handler::check_horizontal_winner(int stone)
 bool Playfield_Handler::check_vertical_winner(int stone)
 {
     int check_stone = 0;
-    for(int i = 0; i < this->m_rows; i++)
+    for (int i = 0; i < this->m_rows; i++)
     {
         check_stone = 0;
-        for(int j = 0; j < this->m_columns; j++)
+        for (int j = 0; j < this->m_columns; j++)
         {
-            if(this->m_playfield.at(j).at(i) == stone)
+            if (this->m_playfield.at(j).at(i) == stone)
             {
                 ++check_stone;
-                if(check_stone == 3)
+                if (check_stone == 3)
                 {
                     return true;
                 }
@@ -149,17 +149,17 @@ bool Playfield_Handler::check_diagonal_winner(int stone)
 
 bool Playfield_Handler::check_winner(int stone)
 {
-    if(this->check_horizontal_winner(stone) == true)
+    if (this->check_horizontal_winner(stone) == true)
     {
         std::cout << "Player " << stone << " has won!" << std::endl;
         return true;
     }
-    if(this->check_vertical_winner(stone) == true)
+    if (this->check_vertical_winner(stone) == true)
     {
         std::cout << "Player " << stone << " has won!" << std::endl;
         return true;
     }
-    if(this->check_diagonal_winner(stone) == true)
+    if (this->check_diagonal_winner(stone) == true)
     {
         std::cout << "Player " << stone << " has won!" << std::endl;
         return true;
@@ -171,13 +171,13 @@ bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_stone)
 {
     bool legal = false;
     legal = this->check_for_legal_play(y_axis, x_axis);
-    if(legal == false)
+    if (legal == false)
     {
         return false;
     }
-    else if(legal == true)
+    else if (legal == true)
     {
-        if(this->m_playfield.at(y_axis).at(x_axis) != 0) //already used field can't be used 2. time
+        if (this->m_playfield.at(y_axis).at(x_axis) != 0) //already used field can't be used 2. time
         {
             return false;
         }

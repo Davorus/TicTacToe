@@ -33,15 +33,15 @@ Player_Type Gamesetup_Handler::set_Player_Type() const
         MyUtils::print("Enter type for Player");
         MyUtils::input(input);
         
-        if(input < 1 || input > 3)
+        if (input < 1 || input > 3)
             MyUtils::print("Enter valid input");
         else
         {
-            if(input == 1)
+            if (input == 1)
                 return Player_Type::Human;
-            else if(input == 2)
+            else if (input == 2)
                 return Player_Type::RandomBot;
-            else if(input == 3)
+            else if (input == 3)
                 return Player_Type::SmartBot;
         }
     } while (input < 1 || input > 3);
@@ -105,7 +105,7 @@ void Gamesetup_Handler::initialize_players()
     MyUtils::print("Enter amount of players:");
     MyUtils::input(amount_of_players);
 
-    for(int i = 0; i < amount_of_players; i++)
+    for (int i = 0; i < amount_of_players; i++)
     {
         this->m_GH.set_players(this->set_Player_Type());
     }

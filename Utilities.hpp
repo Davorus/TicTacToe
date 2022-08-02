@@ -2,15 +2,15 @@
 #ifndef _UTILITIES_HPP_
 #define _UTILITIES_HPP_
 //----------------------------------------------------------------
+#include <iostream>
+#include <conio.h>
+#include <unistd.h>
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 /*
-    Über .hpp gelöst, da der Gnu Compiler keine Module auflösen kann und
-    ich oft verwendete Befehle irgendwie auslagern wollte
+    Some often used methods that are needed and simply reduced code
+    by putting it in here
 */
-
-#include <iostream>
-#include <conio.h>
 
 namespace MyUtils
 {
@@ -35,6 +35,11 @@ namespace MyUtils
     static void wait_for_enter()
     {
         getch();
+    }
+
+    static void sleep(float time)
+    {
+        sleep(time);
     }
 }
 

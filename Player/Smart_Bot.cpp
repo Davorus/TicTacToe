@@ -3,6 +3,9 @@
 #include "Smart_Bot.hpp"
 //----------------------------------------------------------------
 
+/*
+    His instance number in creation is his marking on the playfield
+*/
 Smart_Bot::Smart_Bot(int stone)
     :m_stone{stone}
 {

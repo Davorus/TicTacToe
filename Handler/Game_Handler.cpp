@@ -19,6 +19,11 @@ void Game_Handler::initialize_players()
     for(int i = 0; i < this->m_to_be_set_players.size(); i++)
     {
         Player_Type temp = this->m_to_be_set_players.at(i);
+        /*
+            Playerinstanticiation, for amount of players and types
+            that have been set are created here and saved in a
+            vector of pointers
+        */
         if(temp == Player_Type::Human)
         {
             Human_Player* h = new Human_Player(i+1);
@@ -54,8 +59,16 @@ void Game_Handler::start(Playfield_Handler* p_PH)
                 p_PH->print_Playfield();
             } while (player_legal_move == false);
             
+            /*
+                If no marks can be placed anymore, sinply no one won
+                and the game ends
+            */
             if(p_PH->check_playfield_full())
             {
+                MyUtils::print("No moves possible anymore");
+                MyUtils::sleep(2);
+                MyUtils::print("Press any key to return to the main menu...");
+                MyUtils::wait_for_enter();
                 return;
             }
         }

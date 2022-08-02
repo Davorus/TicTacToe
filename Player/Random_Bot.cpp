@@ -4,6 +4,9 @@
 #include "Random_Bot.hpp"
 //----------------------------------------------------------------
 
+/*
+    His instance number in creation is his marking on the playfield
+*/
 Random_Bot::Random_Bot(int stone)
     :m_stone{stone}
 {

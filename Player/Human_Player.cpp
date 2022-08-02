@@ -4,7 +4,10 @@
 #include "../Utilities.hpp"
 //----------------------------------------------------------------
 
-Human_Player::Human_Player(int stone)
+/*
+    His instance number in creation is his marking on the playfield
+*/
+Human_Player::Human_Player(int stone) 
     :m_stone{stone}
 {
 }

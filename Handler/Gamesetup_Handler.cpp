@@ -1,6 +1,5 @@
 //----------------------------------------------------------------
 #include <iostream>
-#include <unistd.h>
 #include <stdlib.h>
 //----------------------------------------------------------------
 #include "Gamesetup_Handler.hpp"
@@ -9,9 +8,11 @@
 
 Gamesetup_Handler::Gamesetup_Handler()
 {
-    this->m_PH = new Playfield_Handler();
+    //Pointer for overall simpler handling
+    this->m_PH = new Playfield_Handler(); 
 }
 
+//Player can choose what players he wants to play against
 Player_Type Gamesetup_Handler::set_Player_Type() const
 {
     MyUtils::clear_screen();
@@ -19,7 +20,8 @@ Player_Type Gamesetup_Handler::set_Player_Type() const
     MyUtils::print("   1. Human Player");
     MyUtils::print("   2. Random Bot");
     MyUtils::print("   3. Smart Bot");
-    int input;
+    
+    int input = 0;
     do
     {
         MyUtils::print("Enter type for Player");
@@ -50,19 +52,20 @@ int Gamesetup_Handler::get_Menu_input() const
     return input;
 }
 
+//Some credits, because why not
 void Gamesetup_Handler::credits()
 {
     MyUtils::clear_screen();
     MyUtils::print("Credits are overrated");
-    sleep(4);
+    MyUtils::sleep(4);
     MyUtils::print("BUT!");
-    sleep(1.5);
+    MyUtils::sleep(1.5);
     MyUtils::print("This game belongs to David Movsesjan who made it");
-    sleep(1.5);
+    MyUtils::sleep(1.5);
     MyUtils::print("as a university project. This credits aren't to be");
-    sleep(1.5);
+    MyUtils::sleep(1.5);
     MyUtils::print("taken too serious.");
-    sleep(4);
+    MyUtils::sleep(4);
     MyUtils::print("Or maybe they should?");
     MyUtils::print("Press any key to return to the main menu...");
     MyUtils::wait_for_enter();
@@ -70,19 +73,20 @@ void Gamesetup_Handler::credits()
     this->print_Start_Menu();
 }
 
+//For those who live behind the moon
 void Gamesetup_Handler::gamerules()
 {
     MyUtils::clear_screen();
     MyUtils::print("Gamerules:");
-    sleep(3);
+    MyUtils::sleep(3);
     MyUtils::print("Try to place 3 of your moves in a");
-    sleep(1);
+    MyUtils::sleep(1);
     MyUtils::print("    1. horizontal");
-    sleep(1);
+    MyUtils::sleep(1);
     MyUtils::print("    2. vertical");
-    sleep(1);
+    MyUtils::sleep(1);
     MyUtils::print("    3. diagonal");
-    sleep(1);
+    MyUtils::sleep(1);
     MyUtils::print("way to win the game!");
     MyUtils::print("Press any key to return to the main menu...");
     MyUtils::wait_for_enter();
@@ -91,29 +95,13 @@ void Gamesetup_Handler::gamerules()
 
 void Gamesetup_Handler::initialize_players()
 {
-    int amount_of_players = -1;
-    do
-    {
-        MyUtils::print("Enter amount of players(max 3):");
-        MyUtils::input(amount_of_players);
-    } while (amount_of_players <= 1 || amount_of_players > 3);
+    int amount_of_players = 0;
+    MyUtils::print("Enter amount of players:");
+    MyUtils::input(amount_of_players);
 
-    switch (amount_of_players)
+    for(int i = 0; i < amount_of_players; i++)
     {
-    case 2:
-        {
-            for(int i = 0; i < 2; i++)
-                this->m_GH.set_players(this->set_Player_Type());
-        }
-        break;
-    case 3:
-        {
-            for(int i = 0; i < 3; i++)
-                this->m_GH.set_players(this->set_Player_Type());
-        }
-        break;
-    default:
-        return;
+        this->m_GH.set_players(this->set_Player_Type());
     }
 }
 

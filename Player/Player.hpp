@@ -9,9 +9,12 @@
 
 class Player
 {
-    public:                         //Should save what number the player will place on the field 
-        Player_Type m_type;
-        virtual bool player_move(Playfield_Handler* p_PH);
+    public:                
+        /*
+            No direct instances needed, just call this method for any derived
+            class of Player, to let him make a move
+        */
+        virtual bool player_move(Playfield_Handler* p_PH); 
         virtual Player_Type get_player_type()=0;
 };
 

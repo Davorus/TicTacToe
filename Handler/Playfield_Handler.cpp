@@ -15,9 +15,15 @@ Playfield_Handler::Playfield_Handler()
 
 void Playfield_Handler::initialize_Playfield(int rows, int columns)
 {
+    /*
+        Saving the players entered playfield size, for better handling
+        of the playfield
+    */
     this->m_rows = rows;
     this->m_columns = columns;
-    std::vector<std::vector<int>> tempVector(rows, std::vector<int>(columns));
+
+    //Instanciation of a temporary 2D vector as playfield
+    std::vector<std::vector<int>> tempVector(rows, std::vector<int>(columns)); 
 
     for(int i = 0; i < rows; i++)
     {
@@ -26,6 +32,7 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
             tempVector.at(i).at(j) = 0;
         }
     }
+    //Safe the created temporary vector in a member attribute
     this->m_playfield.assign(tempVector.begin(), tempVector.end());
 }
 
@@ -44,6 +51,7 @@ void Playfield_Handler::print_Playfield() const
 
 bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
 {
+    //-1 for rows in columns, indexes in arrays start counting by 0
     if(y_axis < 0 || y_axis > this->m_rows-1)
     {
         return false;
@@ -60,6 +68,7 @@ bool Playfield_Handler::check_for_legal_play(int y_axis, int x_axis) const
 
 bool Playfield_Handler::check_playfield_full()
 {
+    //Count the zeros in playfield, if there are none, playfield is full
     int count_zero = 0;
     for(int i = 0; i < this->m_rows; i++)
     {
@@ -100,13 +109,13 @@ bool Playfield_Handler::player_move(int y_axis, int x_axis, int player_move)
     }
     else if(legal == true)
     {
-        if(this->m_playfield.at(y_axis).at(x_axis) != 0)
+        if(this->m_playfield.at(y_axis).at(x_axis) != 0) //already used field can't be used 2. time
         {
             return false;
         }
         else
         {
-            this->m_playfield.at(y_axis).at(x_axis) = player_move;
+            this->m_playfield.at(y_axis).at(x_axis) = player_move; //sets mark of player if field is truely 0
             return true;
         }
     }

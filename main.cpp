@@ -14,7 +14,7 @@ int main()
         h.print_Start_Menu();
         
         MyUtils::clear_screen();
-        MyUtils::print("Do you want to leave?");
+        MyUtils::print("Do you want to leave the game?");
         MyUtils::print("   1: Yes");
         MyUtils::print("   2: No");
         int user_input = 0;

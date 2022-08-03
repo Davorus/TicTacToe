@@ -113,10 +113,10 @@ void Gamesetup_Handler::initialize_players()
 
 void Gamesetup_Handler::play()
 {
-    MyUtils::print("Enter rows levels for playfield");
+    MyUtils::print("Enter amount of rows for the playfield");
     int rows;
     MyUtils::input(rows);
-    MyUtils::print("Enter columns levels for playfield");
+    MyUtils::print("Enter amount of columns for it playfield");
     int columns;
     MyUtils::input(columns);
     

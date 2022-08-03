@@ -2,16 +2,17 @@
 
 ## Functionality
 
-Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`, which has the menu lead implemented and sets up the whole game. Playerinitialization is taken by the `Game_Handler` and the playermanagement itself. `Playfield_Handler` takes care of printing the playfield and if a player has won.
+Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`, which has the menu lead implemented and sets up the whole game. Playerinitialization and the playermanagement is taken by the `Game_Handler`. The `Playfield_Handler` takes care of printing the playfield and checks if a player has won.
 
 ---
 
 ## How to run the code
 
+>Tip: If you want to play with a bigger field against some bots, then make the console a bit bigger
+
 1. Open Visual Studio Code
 2. Open the repo in Visual Studio Code
-3. Open `main.cpp`
-4. Compile the `main.cpp` file
+3. Open and compile `main.cpp`
 
 >It's possible to run the code on other compilers than gnu, but some lines have to be changed and the overall structure has to be implemented a bit different depending on what IDE you want to run the code
 
@@ -23,14 +24,14 @@ Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`
 
 The structure of the players is quiet simple to understand, all I have done is to create a base class `Player` that needs to be derived and through pointers I can call the true virtual method `player_move(...)` in every derived class without to know what class was instanciated.
 
-> For refreshing what inheritance is in object-oriented programming:  [Inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))
+> For refreshing what inheritance is in object-oriented programming:  [_Inheritance_](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))
 
 ---
 
 ## Extensions
 
-* I implemented a complete menu lead, instead of opening and compiling it once you can play more games before it closes
-* Outsourced code snippets in only functional header, wanted to use `modules` but the gnu compiler isn't capable in using them
+* I implemented a complete menu lead, instead of opening and compiling it once you can play more games before you close it
+* Outsourced code snippets in an only functional header, wanted to use [_modules_](https://en.cppreference.com/w/cpp/language/modules) but the gnu compiler isn't capable in using them
   
 ---
 

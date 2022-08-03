@@ -7,6 +7,12 @@
 
 int main()
 {
+
+    /*
+        My idea behind this while loop is that the game itself
+        should start completely new, so that the game can run
+        hopefully bug free
+    */
     bool exit = false;
     while (exit == false)
     {

@@ -63,6 +63,7 @@ void Game_Handler::start(Playfield_Handler* p_PH)
         bool player_legal_move = false;
         for (int i = 0; i < this->m_player.size(); i++)
         {    
+            std::cout << "Turn of: Player " << i+1 << std::endl;
             do
             {
                 player_legal_move = this->m_player.at(i)->player_move(p_PH);
@@ -71,7 +72,6 @@ void Game_Handler::start(Playfield_Handler* p_PH)
             
             if (p_PH->check_winner(this->m_player.at(i)->get_stone()) == true)
             {
-                MyUtils::wait_for_enter();
                 return;
             }
 

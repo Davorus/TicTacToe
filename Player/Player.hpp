@@ -16,6 +16,7 @@ class Player
         */
         virtual bool player_move(Playfield_Handler* p_PH); 
         virtual Player_Type get_player_type()=0;
+        virtual int get_stone()=0;
 };
 
 #endif

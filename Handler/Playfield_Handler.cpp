@@ -102,20 +102,24 @@ int Playfield_Handler::get_columns()
 bool Playfield_Handler::check_horizontal_winner(int stone)
 {
     int check_stone = 0;
-    for (int i = 0; i < this->m_columns; i++)
+    for (int i = 0; i < this->m_rows; i++)
     {
-        check_stone = 0;
-        for (int j = 0; j < this->m_rows; j++)
+        for (int j = 0; j < this->m_columns; j++)
         {
             if (this->m_playfield.at(i).at(j) == stone)
             {
-                ++check_stone;
+                check_stone++;
                 if (check_stone == 3)
                 {
                     return true;
                 }
             }
+            else
+            {
+                check_stone = 0;
+            }
         }
+        check_stone = 0;
     }
     return false;
 }
@@ -130,11 +134,51 @@ bool Playfield_Handler::check_vertical_winner(int stone)
         {
             if (this->m_playfield.at(j).at(i) == stone)
             {
-                ++check_stone;
+                check_stone++;
                 if (check_stone == 3)
                 {
                     return true;
                 }
+            }
+            else
+            {
+                check_stone = 0;
+            }
+        }
+    }
+    return false;
+}
+
+bool Playfield_Handler::check_winner_diagonal_left_right(int stone)
+{
+    for (int i = 0; i < this->m_rows; i++)
+    {
+        for (int j = 0; j < this->m_columns; j++)
+        {
+            if (i < this->m_rows-2 && j < this->m_columns-2)
+            {
+                if (this->m_playfield.at(i).at(j) == stone)
+                    if (this->m_playfield.at(i+1).at(j+1) == stone)
+                        if (this->m_playfield.at(i+2).at(j+2) == stone)
+                            return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool Playfield_Handler::check_winner_diagonal_right_left(int stone)
+{
+    for (int i = 0; i < this->m_rows; i++)
+    {
+        for (int j = this->m_rows-1; j > 0; j--)
+        {
+            if (j >= 2 && i < this->m_rows-2)
+            {
+                if (this->m_playfield.at(i).at(j) == stone)
+                    if (this->m_playfield.at(i+1).at(j-1) == stone)
+                        if (this->m_playfield.at(i+2).at(j-2) == stone)
+                            return true;
             }
         }
     }
@@ -143,27 +187,40 @@ bool Playfield_Handler::check_vertical_winner(int stone)
 
 bool Playfield_Handler::check_diagonal_winner(int stone)
 {
-    bool won = false;
-    return won;
+    if(check_winner_diagonal_left_right(stone) == true)
+    {
+        return true;
+    }
+
+    if(check_winner_diagonal_right_left(stone) == true)
+    {
+        return true;
+    }       
+
+    return false;
 }
 
 bool Playfield_Handler::check_winner(int stone)
 {
+    
     if (this->check_horizontal_winner(stone) == true)
     {
-        std::cout << "Player " << stone << " has won!" << std::endl;
+        std::cout << "Player " << stone << " has won horizontally!" << std::endl;
         return true;
     }
+    
     if (this->check_vertical_winner(stone) == true)
     {
-        std::cout << "Player " << stone << " has won!" << std::endl;
+        std::cout << "Player " << stone << " has won vertically!" << std::endl;
         return true;
     }
+    
     if (this->check_diagonal_winner(stone) == true)
     {
-        std::cout << "Player " << stone << " has won!" << std::endl;
+        std::cout << "Player " << stone << " has won diagonally!" << std::endl;
         return true;
     }
+    
     return false;
 }
 

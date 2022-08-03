@@ -17,6 +17,8 @@ class Playfield_Handler
         bool check_horizontal_winner(int stone);
         bool check_vertical_winner(int stone);
         bool check_diagonal_winner(int stone);
+        bool check_winner_diagonal_left_right(int stone);
+        bool check_winner_diagonal_right_left(int stone);
     public:
         Playfield_Handler();
         void initialize_Playfield(int rows, int columns);

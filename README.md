@@ -13,6 +13,18 @@ Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`
 3. Open `main.cpp`
 4. Compile the `main.cpp` file
 
+>It's possible to run the code on other compilers than gnu, but some lines have to be changed and the overall structure has to be implemented a bit different
+
+---
+
+## Player structure
+
+> Based on simple abstraction: a method `player_move(...)` that has to be derived in every derived class of player
+
+The structure of the players is quiet simple to understand, all I have done is to create a base class `Player` that needs to be derived and through pointers I can call the true virtual method `player_move(...)` in every derived class without to know what class was instanciated.
+
+> For refreshing what inheritance is in object-oriented programming:  [Inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))
+
 ---
 
 ## Extensions

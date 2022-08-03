@@ -113,12 +113,19 @@ void Gamesetup_Handler::initialize_players()
 
 void Gamesetup_Handler::play()
 {
-    MyUtils::print("Enter amount of rows for the playfield");
     int rows;
-    MyUtils::input(rows);
-    MyUtils::print("Enter amount of columns for it playfield");
+    do
+    {
+        MyUtils::print("Enter amount of rows for the playfield (minimum: 3)");
+        MyUtils::input(rows);
+    } while (rows < 3);
+    
     int columns;
-    MyUtils::input(columns);
+    do
+    {
+        MyUtils::print("Enter amount of columns for the playfield (minimum: 3)");
+        MyUtils::input(columns);
+    } while (columns < 3);
     
     this->m_PH->initialize_Playfield(rows, columns);
     

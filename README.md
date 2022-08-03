@@ -13,7 +13,7 @@ Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`
 3. Open `main.cpp`
 4. Compile the `main.cpp` file
 
->It's possible to run the code on other compilers than gnu, but some lines have to be changed and the overall structure has to be implemented a bit different
+>It's possible to run the code on other compilers than gnu, but some lines have to be changed and the overall structure has to be implemented a bit different depending on what IDE you want to run the code
 
 ---
 

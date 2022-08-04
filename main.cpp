@@ -23,6 +23,7 @@ int main()
         MyUtils::print("Do you want to leave the game?");
         MyUtils::print("   1: Yes");
         MyUtils::print("   2: No");
+        
         int user_input = 0;
         MyUtils::input(user_input);
         if (user_input == 1)

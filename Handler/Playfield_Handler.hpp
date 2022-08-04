@@ -10,7 +10,6 @@ class Playfield_Handler
 {
     private:
         bool m_gameStarted;
-        std::vector<std::vector<int>> m_playfield;
         int m_rows;
         int m_columns;
         bool check_for_legal_play(int y_axis, int x_axis) const;
@@ -20,6 +19,7 @@ class Playfield_Handler
         bool check_winner_diagonal_left_right(int stone);
         bool check_winner_diagonal_right_left(int stone);
     public:
+        std::vector<std::vector<int>> m_playfield;
         Playfield_Handler();
         void initialize_Playfield(int rows, int columns);
         void print_Playfield() const;

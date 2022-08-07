@@ -1,5 +1,6 @@
 //----------------------------------------------------------------
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <unistd.h>
 //----------------------------------------------------------------
@@ -23,9 +24,9 @@ Player_Type Gamesetup_Handler::set_Player_Type() const
 {
     MyUtils::clear_screen();
     MyUtils::print("Choose what the next player should be:");
-    MyUtils::print("   1. Human Player");
-    MyUtils::print("   2. Random Bot");
-    MyUtils::print("   3. Smart Bot");
+    MyUtils::print("\t1. Human Player");
+    MyUtils::print("\t2. Random Bot");
+    MyUtils::print("\t3. Smart Bot");
     
     int input = 0;
     do
@@ -87,11 +88,11 @@ void Gamesetup_Handler::gamerules()
     sleep(3);
     MyUtils::print("Try to place 3 of your moves in a");
     sleep(1);
-    MyUtils::print("    1. horizontal");
+    MyUtils::print("\t1. horizontal");
     sleep(1);
-    MyUtils::print("    2. vertical");
+    MyUtils::print("\t2. vertical");
     sleep(1);
-    MyUtils::print("    3. diagonal");
+    MyUtils::print("\t3. diagonal");
     sleep(1);
     MyUtils::print("way to win the game!");
     MyUtils::print("Press any key to return to the main menu...");
@@ -113,20 +114,37 @@ void Gamesetup_Handler::initialize_players()
 
 void Gamesetup_Handler::play()
 {
-    int rows;
-    do
-    {
-        MyUtils::print("Enter amount of rows for the playfield (minimum: 3)");
-        MyUtils::input(rows);
-    } while (rows < 3);
-    
-    int columns;
-    do
-    {
-        MyUtils::print("Enter amount of columns for the playfield (minimum: 3)");
-        MyUtils::input(columns);
-    } while (columns < 3);
-    
+    //
+    int rows = 0;
+    std::string line;
+    std::ifstream file_input;
+    file_input.open("config.txt");
+    std::string s_height = "Height: ";
+    while(getline(file_input, line))
+    { 
+        auto pointer_to_int = line.find(s_height, 0);
+        if (pointer_to_int != std::string::npos) 
+        {
+            pointer_to_int += 8;
+            std::string temp = line.substr(pointer_to_int, 1);
+            rows = std::stoi(temp);
+        }
+    }
+    file_input.close();
+
+    int columns = 0;
+    file_input.open("config.txt");
+    std::string s_width = "Width: ";
+    while(getline(file_input, line))
+    { 
+        auto pointer_to_int = line.find(s_width, 0);
+        if (pointer_to_int != std::string::npos) 
+        {
+            pointer_to_int += 7;
+            std::string temp = line.substr(pointer_to_int, 1);
+            columns = std::stoi(temp);
+        }
+    }
     this->m_PH->initialize_Playfield(rows, columns);
     
     this->initialize_players();

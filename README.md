@@ -24,6 +24,9 @@ Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`
 
 The structure of the players is quiet simple to understand, all I have done is to create a base class `Player` that needs to be derived and through pointers I can call the true virtual method `player_move(...)` in every derived class without to know what class was instanciated.
 
+In the `Game_Handler` you set up a new `if` statement in the `initialize_players()` method.You also have to add the playertype in the menu so that the user can choose it.
+The function to include that is in the `Gamesetup_Handler`: `set_player_type()`
+
 > For refreshing what inheritance is in object-oriented programming:  [_Inheritance_](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))
 
 ---

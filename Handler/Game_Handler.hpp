@@ -6,10 +6,10 @@
 //----------------------------------------------------------------
 #include "../EnumClasses.hpp"
 #include "Playfield_Handler.hpp"
-#include "Player.hpp"
-#include "Human_Player.hpp"
-#include "Random_Bot.hpp"
-#include "Smart_Bot.hpp"
+#include "../Player/Player.hpp"
+#include "../Player/Human_Player.hpp"
+#include "../Player/Random_Bot.hpp"
+#include "../Player/Smart_Bot.hpp"
 //----------------------------------------------------------------
 
 class Game_Handler

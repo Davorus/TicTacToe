@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.8)
 set(This TicTacToeTest)
 
 set(Sources
-
+    TicTacToeTest.cpp
 )
 
 add_executable(${This} ${Sources})

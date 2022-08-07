@@ -102,6 +102,7 @@ void Gamesetup_Handler::gamerules()
 
 void Gamesetup_Handler::initialize_players()
 {
+    MyUtils::clear_screen();
     int amount_of_players = 0;
     MyUtils::print("Enter amount of players:");
     MyUtils::input(amount_of_players);

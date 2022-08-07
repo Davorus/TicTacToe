@@ -123,7 +123,7 @@ void Gamesetup_Handler::play()
     std::ifstream file_input;
     file_input.open("config.txt");
     std::string s_height = "Height: ";
-    while(getline(file_input, line))
+    while (getline(file_input, line))
     { 
         auto pointer_to_int = line.find(s_height, 0);
         if (pointer_to_int != std::string::npos) 
@@ -131,6 +131,8 @@ void Gamesetup_Handler::play()
             pointer_to_int += 8;
             std::string temp = line.substr(pointer_to_int, 1);
             rows = std::stoi(temp);
+            if (rows < 3)
+                rows = 3;
         }
     }
     file_input.close();
@@ -138,7 +140,7 @@ void Gamesetup_Handler::play()
     int columns = 0;
     file_input.open("config.txt");
     std::string s_width = "Width: ";
-    while(getline(file_input, line))
+    while (getline(file_input, line))
     { 
         auto pointer_to_int = line.find(s_width, 0);
         if (pointer_to_int != std::string::npos) 
@@ -146,6 +148,8 @@ void Gamesetup_Handler::play()
             pointer_to_int += 7;
             std::string temp = line.substr(pointer_to_int, 1);
             columns = std::stoi(temp);
+            if (columns < 3)
+                columns = 3;
         }
     }
     file_input.close();

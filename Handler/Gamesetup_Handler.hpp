@@ -27,8 +27,8 @@ class Gamesetup_Handler
     public:
         Gamesetup_Handler();
         ~Gamesetup_Handler();
-        Player_Type set_Player_Type() const;
-        void print_Start_Menu();
+        Player_Type set_player_type() const;
+        void print_start_menu();
 };
 
 #endif

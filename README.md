@@ -18,6 +18,14 @@ Inside of the `int main()` method is only an instance of the `Gamesetup_Handler`
 
 ---
 
+## How to run the tests
+
+1. Choose Kit of MinGW
+2. Let it build
+3. On the bottom of Visual Studio Code should now be a run button, click this one
+
+---
+
 ## Player structure
 
 > Based on simple abstraction: a method `player_move(...)` that has to be derived in every derived class of player

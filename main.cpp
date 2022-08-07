@@ -16,7 +16,7 @@ int main()
     while (exit == false)
     {
         Gamesetup_Handler h;
-        h.print_Start_Menu();
+        h.print_start_menu();
         
         MyUtils::clear_screen();
         MyUtils::print("Do you want to leave the game?");

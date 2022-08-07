@@ -23,8 +23,8 @@ class Playfield_Handler
         Playfield_Handler();
         void reset_field();
         int get_field_size();
-        void initialize_Playfield(int rows, int columns);
-        void print_Playfield() const;
+        void initialize_playfield(int rows, int columns);
+        void print_playfield() const;
         bool player_move(int y_axis, int x_axis, int player_stone);
         bool check_playfield_full();
         int get_rows();

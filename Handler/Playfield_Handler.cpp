@@ -13,7 +13,7 @@ Playfield_Handler::Playfield_Handler()
 {
 }
 
-void Playfield_Handler::initialize_Playfield(int rows, int columns)
+void Playfield_Handler::initialize_playfield(int rows, int columns)
 {
     /*
         Saving the players entered playfield size, for better handling
@@ -47,7 +47,7 @@ void Playfield_Handler::reset_field()
     }
 }
 
-void Playfield_Handler::print_Playfield() const
+void Playfield_Handler::print_playfield() const
 {
     MyUtils::clear_screen();
     for (int i = 0; i < this->m_rows; i++)

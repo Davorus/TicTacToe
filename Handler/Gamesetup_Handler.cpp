@@ -20,7 +20,7 @@ Gamesetup_Handler::~Gamesetup_Handler()
 }
 
 //Player can choose what players he wants to play against
-Player_Type Gamesetup_Handler::set_Player_Type() const
+Player_Type Gamesetup_Handler::set_player_type() const
 {
     MyUtils::clear_screen();
     MyUtils::print("Choose what the next player should be:");
@@ -77,7 +77,7 @@ void Gamesetup_Handler::credits()
     MyUtils::print("Press any key to return to the main menu...");
     MyUtils::wait_for_enter();
 
-    this->print_Start_Menu();
+    this->print_start_menu();
 }
 
 //For those who live behind the moon
@@ -97,7 +97,7 @@ void Gamesetup_Handler::gamerules()
     MyUtils::print("way to win the game!");
     MyUtils::print("Press any key to return to the main menu...");
     MyUtils::wait_for_enter();
-    this->print_Start_Menu();
+    this->print_start_menu();
 }
 
 void Gamesetup_Handler::initialize_players()
@@ -109,7 +109,7 @@ void Gamesetup_Handler::initialize_players()
 
     for (int i = 0; i < amount_of_players; i++)
     {
-        this->m_GH.set_players(this->set_Player_Type());
+        this->m_GH.set_players(this->set_player_type());
     }
 }
 
@@ -155,7 +155,7 @@ void Gamesetup_Handler::play()
     }
     file_input.close();
     
-    this->m_PH->initialize_Playfield(rows, columns);
+    this->m_PH->initialize_playfield(rows, columns);
     
     this->initialize_players();
    
@@ -179,7 +179,7 @@ void Gamesetup_Handler::set_up_mode(Menu_Options mode)
     }
 }
 
-void Gamesetup_Handler::print_Start_Menu()
+void Gamesetup_Handler::print_start_menu()
 {
     MyUtils::clear_screen();
     MyUtils::print("***********MENU***********");

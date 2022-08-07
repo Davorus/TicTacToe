@@ -59,7 +59,7 @@ void Game_Handler::start(Playfield_Handler* p_PH)
     bool game_won = false;
     do
     {
-        p_PH->print_Playfield();
+        p_PH->print_playfield();
         bool player_legal_move = false;
         for (int i = 0; i < this->m_player.size(); i++)
         {    
@@ -67,7 +67,7 @@ void Game_Handler::start(Playfield_Handler* p_PH)
             do
             {
                 player_legal_move = this->m_player.at(i)->player_move(p_PH);
-                p_PH->print_Playfield();
+                p_PH->print_playfield();
             } while (player_legal_move == false);
             
             if (p_PH->check_winner(this->m_player.at(i)->get_stone()) == true)

@@ -171,7 +171,7 @@ bool Playfield_Handler::check_winner_diagonal_right_left(int stone)
 {
     for (int i = 0; i < this->m_rows; i++)
     {
-        for (int j = this->m_rows-1; j > 0; j--)
+        for (int j = this->m_columns-1; j > 0; j--)
         {
             if (j >= 2 && i < this->m_rows-2)
             {

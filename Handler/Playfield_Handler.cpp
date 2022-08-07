@@ -36,6 +36,17 @@ void Playfield_Handler::initialize_Playfield(int rows, int columns)
     this->m_playfield.assign(tempVector.begin(), tempVector.end());
 }
 
+void Playfield_Handler::reset_field()
+{
+    for (int i = 0; i < this->m_rows; i++)
+    {
+        for (int j = 0; j < this->m_columns; j++)
+        {
+            this->m_playfield.at(i).at(j) = 0;
+        }
+    }
+}
+
 void Playfield_Handler::print_Playfield() const
 {
     MyUtils::clear_screen();
@@ -91,12 +102,12 @@ bool Playfield_Handler::check_playfield_full()
 
 int Playfield_Handler::get_rows()
 {
-    return this->m_rows;
+    return this->m_rows-1;
 }
 
 int Playfield_Handler::get_columns()
 {
-    return this->m_columns;
+    return this->m_columns-1;
 }
 
 bool Playfield_Handler::check_horizontal_winner(int stone)

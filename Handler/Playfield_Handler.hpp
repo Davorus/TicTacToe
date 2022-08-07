@@ -21,6 +21,7 @@ class Playfield_Handler
     public:
         std::vector<std::vector<int>> m_playfield;
         Playfield_Handler();
+        void reset_field();
         void initialize_Playfield(int rows, int columns);
         void print_Playfield() const;
         bool player_move(int y_axis, int x_axis, int player_stone);

@@ -11,15 +11,23 @@ enable_testing()
 add_subdirectory(Testing/lib/googletest)
 
 set(Headers
+    Handler/Playfield_Handler.hpp
+    Player/Player.hpp
     Handler/Game_Handler.hpp
     Handler/Gamesetup_Handler.hpp
-    Handler/Playfield_Handler.hpp
+    Player/Human_Player.hpp
+    Player/Random_Bot.hpp
+    Player/Smart_Bot.hpp
 )
 
 set(Sources
+    Handler/Playfield_Handler.cpp
+    Player/Player.cpp
     Handler/Game_Handler.cpp
     Handler/Gamesetup_Handler.cpp
-    Handler/Playfield_Handler.cpp
+    Player/Human_Player.cpp
+    Player/Random_Bot.cpp
+    Player/Smart_Bot.cpp
 )
 
 add_library(${This} STATIC ${Sources} ${Headers})

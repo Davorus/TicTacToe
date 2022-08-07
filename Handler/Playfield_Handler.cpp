@@ -110,6 +110,11 @@ int Playfield_Handler::get_columns()
     return this->m_columns-1;
 }
 
+int Playfield_Handler::get_field_size()
+{
+    return this->m_rows * this->m_columns;
+}
+
 bool Playfield_Handler::check_horizontal_winner(int stone)
 {
     int check_stone = 0;

@@ -6,6 +6,7 @@ set(Sources
     TicTacToeTest.cpp
     ../../Player/Player.cpp
     ../../Player/Random_Bot.cpp
+    ../../Player/Smart_Bot.cpp
     ../../Handler/Playfield_Handler.cpp
 )
 

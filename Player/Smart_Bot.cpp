@@ -3,6 +3,7 @@
 #include <iostream>
 //----------------------------------------------------------------
 #include "Smart_Bot.hpp"
+#include "Random_Bot.hpp"
 //----------------------------------------------------------------
 
 /*
@@ -10,7 +11,7 @@
 */
 Smart_Bot::Smart_Bot(int stone)
     :m_stone{stone}
-    ,first_move_made{false}
+    ,m_placed_stones{0}
 {
 }
 
@@ -19,61 +20,123 @@ Player_Type Smart_Bot::get_player_type()
     return Player_Type::SmartBot;
 }
 
-bool Smart_Bot::check_horizontal_move(Playfield_Handler* p_PH)
+void Smart_Bot::count_placed_stones(Playfield_Handler* p_PH)
 {
-    if(this->x_pos < p_PH->get_rows())
+    for (int i = 0; i < p_PH->get_rows(); i++)
     {
-        if (p_PH->m_playfield.at(this->y_pos).at(this->x_pos+1) == 0)
+        for (int j = 0; j < p_PH->get_columns(); j++)
         {
-            this->x_pos = x_pos+1;
-            p_PH->player_move(this->y_pos, this->x_pos, this->m_stone);
-            return true;
+            if (p_PH->m_playfield.at(i).at(j) == this->m_stone)
+                this->m_stone++;
         }
     }
-    
-    if(this->x_pos == p_PH->get_rows())
-    {
-        if (p_PH->m_playfield.at(this->y_pos).at(this->x_pos-1) == 0)
-        {
-            this->x_pos = x_pos-1;
-            p_PH->player_move(this->y_pos, this->x_pos, this->m_stone);
-            return true;
-        }
-    }
+}
 
+bool Smart_Bot::check_next_move(Playfield_Handler* p_PH)
+{
+
+}
+
+bool Smart_Bot::make_random_move(Playfield_Handler* p_PH)
+{
+    Random_Bot* r = new Random_Bot(this->m_stone);
+    return r->player_move(p_PH);
+}
+
+bool Smart_Bot::horizontal_move(Playfield_Handler* p_PH)
+{
+    for (int i = 0; i < p_PH->get_rows()+1; i++)
+    {
+        for (int j = 0; j < p_PH->get_columns()+1; j++)
+        {
+            if (p_PH->m_playfield.at(i).at(j) == this->m_stone)
+            {
+                if (j < p_PH->get_columns())
+                {
+                    if (p_PH->m_playfield.at(i).at(j+1) == this->m_stone)
+                    {
+                        if (p_PH->m_playfield.at(i).at(j+2) == 0)
+                        {
+                            p_PH->player_move(i, j+2, this->m_stone);
+                            return true;
+                        }
+                        p_PH->player_move(i, j-1, this->m_stone);
+                        return true;
+                    }
+                    p_PH->player_move(i, j+1, this->m_stone);
+                    return true;
+                }
+                else if (j == p_PH->get_columns())
+                 {
+                    if (p_PH->m_playfield.at(i).at(j-1) == this->m_stone)
+                    {
+                        if (p_PH->m_playfield.at(i).at(j-2) == 0)
+                        {
+                            p_PH->player_move(i, j-2, this->m_stone);
+                            return true;
+                        }
+                        p_PH->player_move(i, j+1, this->m_stone);
+                        return true;
+                    }
+                    p_PH->player_move(i, j-1, this->m_stone);
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool Smart_Bot::vertical_move(Playfield_Handler* p_PH)
+{
+    for (int i = 0; i < p_PH->get_columns()+1; i++)
+    {
+        for (int j = 0; j < p_PH->get_rows()+1; j++)
+        {
+            if (p_PH->m_playfield.at(i).at(j) == this->m_stone)
+            {
+                if (i < p_PH->get_rows())
+                {
+                    if (p_PH->m_playfield.at(i+1).at(j) == this->m_stone)
+                    {
+                        p_PH->player_move(i-1, j, this->m_stone);
+                        return true;
+                    }
+                    p_PH->player_move(i+1, j, this->m_stone);
+                    return true;
+                }
+                else if (i == p_PH->get_rows())
+                 {
+                    if (p_PH->m_playfield.at(i-1).at(j) == this->m_stone)
+                    {
+                        p_PH->player_move(i+1, j, this->m_stone);
+                        return true;
+                    }
+                    p_PH->player_move(i-1, j, this->m_stone);
+                    return true;
+                }
+            }
+        }
+    }
     return false;
 }
 
 bool Smart_Bot::player_move(Playfield_Handler* p_PH)
 {
-    if (this->first_move_made == false)
+    if(this->m_placed_stones == 0)
     {
-        std::random_device rand;
-        std::default_random_engine reng(rand());
-        /*
-            At first I place a random stone on the field
-        */
-        std::uniform_int_distribution<int> r_distr(0, p_PH->get_rows());
-        std::uniform_int_distribution<int> c_distr(0, p_PH->get_columns());
-    
-        if (p_PH->player_move(r_distr(reng), c_distr(reng), this->m_stone) == false)
-        {
-            this->first_move_made = false;
-            return false;
-        }
-        else
-        {
-            this->x_pos = r_distr(reng);
-            this->y_pos = c_distr(reng);
-            this->first_move_made = true;
-            return true;
-        }
+        this->m_placed_stones++;
+        return this->make_random_move(p_PH);
     }
     else
     {
-        if(check_horizontal_move(p_PH) == false)
+        if (this->horizontal_move(p_PH) == true)
         {
-            return false;
+            return true;
+        }
+        if (this->vertical_move(p_PH) == true)
+        {
+            return true;
         }
     }
     return false;

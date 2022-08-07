@@ -114,7 +114,10 @@ void Gamesetup_Handler::initialize_players()
 
 void Gamesetup_Handler::play()
 {
-    //
+    /* Solution inspired by this thread:
+        https://stackoverflow.com/questions/12463750/c-searching
+        -text-file-for-a-particular-string-and-returning-the-line-number-wh
+    */
     int rows = 0;
     std::string line;
     std::ifstream file_input;
@@ -145,6 +148,8 @@ void Gamesetup_Handler::play()
             columns = std::stoi(temp);
         }
     }
+    file_input.close();
+    
     this->m_PH->initialize_Playfield(rows, columns);
     
     this->initialize_players();

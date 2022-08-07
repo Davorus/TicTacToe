@@ -66,6 +66,7 @@ bool Smart_Bot::player_move(Playfield_Handler* p_PH)
             this->x_pos = r_distr(reng);
             this->y_pos = c_distr(reng);
             this->first_move_made = true;
+            return true;
         }
     }
     else
@@ -75,7 +76,7 @@ bool Smart_Bot::player_move(Playfield_Handler* p_PH)
             return false;
         }
     }
-    return true;
+    return false;
 }
 
 int Smart_Bot::get_stone()
